@@ -193,23 +193,7 @@
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
-
-
-		<!-- TODO change to maven convention src/main/java; then remove this -->
-		<sourceDirectory>src</sourceDirectory>
-
-		<!-- TODO change to maven convention src/main/resources; then remove this -->
-		<resources>
-			<resource>
-				<directory>src</directory>
-				<includes>
-					<include>data/**/*.*</include>
-				</includes>
-			</resource>
-		</resources>
-
-		<testSourceDirectory>testing</testSourceDirectory>
-
+		
 		<pluginManagement>
 
 			<plugins>

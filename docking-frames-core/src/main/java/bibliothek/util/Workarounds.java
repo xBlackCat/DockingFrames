@@ -61,13 +61,13 @@ public class Workarounds {
 			// no workarounds available, translucency is not supported
 		}
 		else if( version.startsWith( "1.6" )){
-			tryAddWorkaround( "bibliothek.util.workarounds.Java6Workaround" );
+			tryAddWorkaround( "Java6Workaround" );
 		}
 		else if( version.startsWith( "1.7" ) || version.startsWith( "1.8" )) {
-			tryAddWorkaround( "bibliothek.util.workarounds.Java7Workaround" );
+			tryAddWorkaround( "Java7Workaround" );
 		}
 		else {
-			tryAddWorkaround( "bibliothek.util.workarounds.Java9Workaround" );
+			tryAddWorkaround( "Java9Workaround" );
 		}
 	}
 	
