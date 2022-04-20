@@ -20,7 +20,6 @@
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
     <build>
-        <finalName>df_${project.version}_glass</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
