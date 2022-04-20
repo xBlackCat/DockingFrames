@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -33,23 +33,31 @@ import bibliothek.gui.dock.common.intern.CDockable;
  * Represents a line separating some groups of {@link CAction}s. Clients should
  * use {@link #SEPARATOR}, {@link #MENU_SEPARATOR} or {@link #TITLE_SEPARATOR}
  * instead of creating a new action.
+ *
  * @author Benjamin Sigg
  */
-public class CSeparator extends CAction{
-    /** the normal separator */
-    public static final CSeparator SEPARATOR = new CSeparator( ViewTarget.MENU, ViewTarget.TITLE, ViewTarget.DROP_DOWN );
-    
-    /** a separator which is only visible in menus */
-    public static final CSeparator MENU_SEPARATOR = new CSeparator( ViewTarget.MENU, ViewTarget.DROP_DOWN );
-    
-    /** a separator which is only visible on a title of a {@link CDockable} */
-    public static final CSeparator TITLE_SEPARATOR = new CSeparator( ViewTarget.TITLE );
-    
+public class CSeparator extends CAction {
+    /**
+     * the normal separator
+     */
+    public static final CSeparator SEPARATOR = new CSeparator(ViewTarget.MENU, ViewTarget.TITLE, ViewTarget.DROP_DOWN);
+
+    /**
+     * a separator which is only visible in menus
+     */
+    public static final CSeparator MENU_SEPARATOR = new CSeparator(ViewTarget.MENU, ViewTarget.DROP_DOWN);
+
+    /**
+     * a separator which is only visible on a title of a {@link CDockable}
+     */
+    public static final CSeparator TITLE_SEPARATOR = new CSeparator(ViewTarget.TITLE);
+
     /**
      * Creates a new separator
+     *
      * @param targets where to show this action
      */
-    protected CSeparator( ViewTarget<?>... targets ){
-        init( new CommonSeparatorAction( this, targets ));
+    protected CSeparator(ViewTarget<?>... targets) {
+        init(new CommonSeparatorAction(this, targets));
     }
 }

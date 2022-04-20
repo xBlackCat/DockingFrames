@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2008 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -41,45 +41,53 @@ import bibliothek.util.Path;
  * 	<li>What to show on tabs</li>
  * 	<li>Which {@link CControl#setTheme(String) theme} to use</li>
  * </ul>
+ *
  * @author Benjamin Sigg
  */
-public class CLayoutPreferenceModel extends DefaultPreferenceModel{
-	private TabPlacementPreference tabPlacement;
-	private TabContentFilterPreference tabContentFilter;
-	private ThemePreference theme;
-	
+public class CLayoutPreferenceModel extends DefaultPreferenceModel {
+    private final TabPlacementPreference tabPlacement;
+    private final TabContentFilterPreference tabContentFilter;
+    private final ThemePreference theme;
+
     /**
      * Creates a new model.
+     *
      * @param control the control whose settings this model represents
      */
-    public CLayoutPreferenceModel( CControl control ){
-    	super( control.getController() );
-        add( tabPlacement = new TabPlacementPreference( control.intern().getDockProperties(), new Path( "dock.layout.tabplacement" )));
-        add( tabContentFilter = new TabContentFilterPreference( control.intern().getDockProperties(), new Path( "dock.layout.tabcontentfilter" )));
-        add( theme = new ThemePreference( control.intern().getDockProperties(), control.getThemes() ));
+    public CLayoutPreferenceModel(CControl control) {
+        super(control.getController());
+        add(tabPlacement =
+                new TabPlacementPreference(control.intern().getDockProperties(), new Path("dock.layout.tabplacement")));
+        add(tabContentFilter =
+                new TabContentFilterPreference(control.intern().getDockProperties(), new Path("dock.layout" +
+                        ".tabcontentfilter")));
+        add(theme = new ThemePreference(control.intern().getDockProperties(), control.getThemes()));
     }
-    
+
     /**
      * Grants access to the preference that tells what content to show on a tab.
+     *
      * @return the preference, not <code>null</code>
      */
-    public TabContentFilterPreference getTabContentFilter(){
-		return tabContentFilter;
-	}
-    
+    public TabContentFilterPreference getTabContentFilter() {
+        return tabContentFilter;
+    }
+
     /**
      * Grants access to the preference that tells where tabs are placed.
+     *
      * @return the preference, not <code>null</code>
      */
-    public TabPlacementPreference getTabPlacement(){
-		return tabPlacement;
-	}
- 
+    public TabPlacementPreference getTabPlacement() {
+        return tabPlacement;
+    }
+
     /**
      * Grants access to the preference that selects the {@link DockTheme}.
+     *
      * @return the preference, not <code>null</code>
      */
-    public ThemePreference getTheme(){
-		return theme;
-	}
+    public ThemePreference getTheme() {
+        return theme;
+    }
 }

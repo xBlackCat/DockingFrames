@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Herve Guillaume, Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Herve Guillaume
  * rvguillaume@hotmail.com
  * FR - France
@@ -30,39 +30,37 @@
 
 package bibliothek.gui.dock.station.toolbar;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-
 import bibliothek.gui.DockStation;
 import bibliothek.gui.dock.station.StationPaint;
 import bibliothek.gui.dock.themes.basic.BasicStationPaint;
 
+import java.awt.*;
+
 /**
  * This {@link StationPaint} is used to draw content on all the toolbar-
  * {@link DockStation}s.
- * 
+ *
  * @author Benjamin Sigg
  */
-public class ToolbarStationPaint extends BasicStationPaint{
-	private Color dragColor;
+public class ToolbarStationPaint extends BasicStationPaint {
+    private final Color dragColor;
 
-	public ToolbarStationPaint( Color dropColor, Color dragColor ){
-		setColor(dropColor);
-		this.dragColor = dragColor;
-	}
+    public ToolbarStationPaint(Color dropColor, Color dragColor) {
+        setColor(dropColor);
+        this.dragColor = dragColor;
+    }
 
-	@Override
-	public void drawRemoval( Graphics g, DockStation station,
-			Rectangle stationBounds, Rectangle dockableBounds ){
-		Color color = getColor();
-		if (dragColor == null) {
-			setColor(Color.GRAY);
-		} else {
-			setColor(dragColor);
-		}
-		
-		super.drawRemoval(g, station, stationBounds, dockableBounds);
-		setColor(color);
-	}
+    @Override
+    public void drawRemoval(Graphics g, DockStation station,
+                            Rectangle stationBounds, Rectangle dockableBounds) {
+        Color color = getColor();
+        if (dragColor == null) {
+            setColor(Color.GRAY);
+        } else {
+            setColor(dragColor);
+        }
+
+        super.drawRemoval(g, station, stationBounds, dockableBounds);
+        setColor(color);
+    }
 }

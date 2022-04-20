@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2008 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -31,59 +31,64 @@ import java.util.List;
 /**
  * An abstract implementation of {@link Preference} that offers support
  * for {@link PreferenceListener}s.
- * 
- * @author Benjamin Sigg
  *
  * @param <V> the kind of value this preference uses
+ * @author Benjamin Sigg
  */
-public abstract class AbstractPreference<V> implements Preference<V>{
-    /** the list of known listeners */
-    private List<PreferenceListener<V>> listeners = new ArrayList<PreferenceListener<V>>();
-    
-    public void addPreferenceListener( PreferenceListener<V> listener ) {
-        if( listener == null )
-            throw new IllegalArgumentException( "listener must not be null" );
-        listeners.add( listener );
+public abstract class AbstractPreference<V> implements Preference<V> {
+    /**
+     * the list of known listeners
+     */
+    private final List<PreferenceListener<V>> listeners = new ArrayList<>();
+
+    public void addPreferenceListener(PreferenceListener<V> listener) {
+        if (listener == null) {
+            throw new IllegalArgumentException("listener must not be null");
+        }
+        listeners.add(listener);
     }
-    
-    public void removePreferenceListener( PreferenceListener<V> listener ) {
-        listeners.remove( listener );
+
+    public void removePreferenceListener(PreferenceListener<V> listener) {
+        listeners.remove(listener);
     }
-    
+
     /**
      * Tells whether this preference currently has listeners.
+     *
      * @return <code>true</code> if there are any listeners
      */
-    protected boolean hasListeners(){
-    	return listeners.size() > 0;
+    protected boolean hasListeners() {
+        return listeners.size() > 0;
     }
-    
+
     /**
      * Gets all the listeners of this preference.
+     *
      * @return the list of listeners
      */
     @SuppressWarnings("unchecked")
-    protected PreferenceListener<V>[] listeners(){
-        return listeners.toArray( new PreferenceListener[ listeners.size() ] );
+    protected PreferenceListener<V>[] listeners() {
+        return listeners.toArray(new PreferenceListener[0]);
     }
-    
+
     /**
      * Informs all listeners that the value of this preference has changed.
      */
-    protected void fireChanged(){
-        for( PreferenceListener<V> listener : listeners() )
-            listener.changed( this );
+    protected void fireChanged() {
+        for (PreferenceListener<V> listener : listeners()) {
+            listener.changed(this);
+        }
     }
-    
-    public boolean isEnabled( PreferenceOperation operation ) {
+
+    public boolean isEnabled(PreferenceOperation operation) {
         return false;
     }
-    
+
     public PreferenceOperation[] getOperations() {
         return null;
     }
-    
-    public void doOperation( PreferenceOperation operation ) {
+
+    public void doOperation(PreferenceOperation operation) {
         // do nothing
     }
 }

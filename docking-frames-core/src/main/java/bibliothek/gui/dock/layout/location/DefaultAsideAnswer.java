@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -31,34 +31,36 @@ import bibliothek.gui.dock.station.support.PlaceholderMap;
 /**
  * The {@link DefaultAsideAnswer} is just a container for properties but does not modify them
  * in any way.
+ *
  * @author Benjamin Sigg
  */
-public class DefaultAsideAnswer implements AsideAnswer{
-	private boolean canceled;
-	private DockableProperty location;
-	private PlaceholderMap layout;
-	
-	/**
-	 * Creates a new answer.
-	 * @param canceled whether the request was canceled
-	 * @param location the location of the new item
-	 * @param layout the layout of the non-existing station
-	 */
-	public DefaultAsideAnswer( boolean canceled, DockableProperty location, PlaceholderMap layout ){
-		this.canceled = canceled;
-		this.location = location;
-		this.layout = layout;
-	}
-	
-	public boolean isCanceled(){
-		return canceled;
-	}
-	
-	public DockableProperty getLocation(){
-		return location;
-	}
-	
-	public PlaceholderMap getLayout(){
-		return layout;
-	}
+public class DefaultAsideAnswer implements AsideAnswer {
+    private final boolean canceled;
+    private final DockableProperty location;
+    private final PlaceholderMap layout;
+
+    /**
+     * Creates a new answer.
+     *
+     * @param canceled whether the request was canceled
+     * @param location the location of the new item
+     * @param layout   the layout of the non-existing station
+     */
+    public DefaultAsideAnswer(boolean canceled, DockableProperty location, PlaceholderMap layout) {
+        this.canceled = canceled;
+        this.location = location;
+        this.layout = layout;
+    }
+
+    public boolean isCanceled() {
+        return canceled;
+    }
+
+    public DockableProperty getLocation() {
+        return location;
+    }
+
+    public PlaceholderMap getLayout() {
+        return layout;
+    }
 }

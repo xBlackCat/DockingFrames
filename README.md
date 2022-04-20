@@ -10,8 +10,10 @@ To learn how the framework works:
 
 Each directory represents an own project:
 
-* **docking-frames-core**: The basic project containing the core drag and drop mechanism. All other projects depend on this one.
-* **docking-frames-common**: Project for fast development of applications, a layer to hide the complexity of dockingFrame
+* **docking-frames-core**: The basic project containing the core drag and drop mechanism. All other projects depend on
+  this one.
+* **docking-frames-common**: Project for fast development of applications, a layer to hide the complexity of
+  dockingFrame
 * **docking-frames-ext-glass**: An additional set of tabs for the EclipseTheme
 * **docking-frames-tutorial**: A set of small code snippets demonstrating aspects of the projects.
 * **docking-frames-demo-app-ice**: public interfaces of the demonstration framework
@@ -84,7 +86,8 @@ The projects have these dependencies:
 
 ## Maven
 
-Please note: the library is no longer updated in maven. Services will not resume in the near future. Please download directly from https://docking-frames.org .
+Please note: the library is no longer updated in maven. Services will not resume in the near future. Please download
+directly from https://docking-frames.org .
 
 ### Maven Snapshot Repository (outdated version)
 
@@ -118,7 +121,6 @@ or add to your pom.xml:
     </dependencies>
 
 be sure to use latest &lt;version>-SNAPSHOT
-
 
 ### Maven Release Repository (outdated version)
 

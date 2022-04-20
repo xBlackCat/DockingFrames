@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -32,31 +32,32 @@ import bibliothek.gui.dock.station.StationDropOperation;
 
 /**
  * This merger takes two {@link StackDockStation}s and merges them into one.
+ *
  * @author Benjamin Sigg
  */
-public class StackMerger implements Merger{
-	public boolean canMerge( StationDropOperation operation, DockStation parent, DockStation child ){
-		return parent instanceof StackDockStation && child instanceof StackDockStation; 
-	}
-	
-	public void merge( StationDropOperation operation, DockStation parent, DockStation child ){
-		merge( (StackDockStation)parent, (StackDockStation)child );
-	}
-	
-	private void merge( StackDockStation parent, StackDockStation child ){
-		StackDockStation.Insert insert = parent.getInsert();
-		int index = parent.getDockableCount();
-		if( insert != null ){
-			index = insert.getTab();
-			if( insert.isRight() ){
-				index++;
-			}
-		}
-		
-		for( int i = child.getDockableCount()-1; i >= 0; i-- ){
-			Dockable dockable = child.getDockable( i );
-			child.remove( i );
-			parent.add( dockable, index );
-		}
-	}
+public class StackMerger implements Merger {
+    public boolean canMerge(StationDropOperation operation, DockStation parent, DockStation child) {
+        return parent instanceof StackDockStation && child instanceof StackDockStation;
+    }
+
+    public void merge(StationDropOperation operation, DockStation parent, DockStation child) {
+        merge((StackDockStation) parent, (StackDockStation) child);
+    }
+
+    private void merge(StackDockStation parent, StackDockStation child) {
+        StackDockStation.Insert insert = parent.getInsert();
+        int index = parent.getDockableCount();
+        if (insert != null) {
+            index = insert.tab();
+            if (insert.right()) {
+                index++;
+            }
+        }
+
+        for (int i = child.getDockableCount() - 1; i >= 0; i--) {
+            Dockable dockable = child.getDockable(i);
+            child.remove(i);
+            parent.add(dockable, index);
+        }
+    }
 }

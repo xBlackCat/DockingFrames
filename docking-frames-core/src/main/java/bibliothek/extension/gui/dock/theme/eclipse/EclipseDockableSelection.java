@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2008 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,16 +18,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
  */
 package bibliothek.extension.gui.dock.theme.eclipse;
-
-import java.awt.Color;
-
-import javax.swing.BorderFactory;
 
 import bibliothek.gui.DockController;
 import bibliothek.gui.dock.focus.DefaultDockableSelection;
@@ -35,35 +31,39 @@ import bibliothek.gui.dock.focus.DockableSelection;
 import bibliothek.gui.dock.themes.color.DockableSelectionColor;
 import bibliothek.gui.dock.util.color.ColorCodes;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * A {@link DockableSelection} that uses its own border.
+ *
  * @author Benjamin Sigg
  */
-@ColorCodes( {"selection.border"} )
+@ColorCodes({"selection.border"})
 public class EclipseDockableSelection extends DefaultDockableSelection {
-    private DockableSelectionColor borderColor;
-   
+    private final DockableSelectionColor borderColor;
+
     /**
      * Creates the new selection
      */
-    public EclipseDockableSelection(){
-        borderColor = new DockableSelectionColor( this, "selection.border", Color.BLACK ){
+    public EclipseDockableSelection() {
+        borderColor = new DockableSelectionColor(this, "selection.border", Color.BLACK) {
             @Override
-            protected void changed( Color oldColor, Color newColor ) {
-                setBorder( BorderFactory.createLineBorder( newColor ));
+            protected void changed(Color oldColor, Color newColor) {
+                setBorder(BorderFactory.createLineBorder(newColor));
             }
         };
     }
-    
+
     @Override
-    public void open( DockController controller ) {
-        borderColor.setManager( controller.getColors() );
-        super.open( controller );
+    public void open(DockController controller) {
+        borderColor.setManager(controller.getColors());
+        super.open(controller);
     }
-    
+
     @Override
     public void close() {
-        borderColor.setManager( null );
+        borderColor.setManager(null);
         super.close();
     }
 }

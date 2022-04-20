@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -34,7 +34,8 @@ import bibliothek.gui.dock.common.action.core.CommonDockAction;
 /**
  * An action which is never visible, can be used as placeholder
  * or in cases where an action would normally be required and <code>null</code>
- * would be replaced by a default action. 
+ * would be replaced by a default action.
+ *
  * @author Benjamin Sigg
  */
 public class CBlank extends CAction {
@@ -42,30 +43,30 @@ public class CBlank extends CAction {
      * A public instance of {@link CBlank}.
      */
     public static final CBlank BLANK = new CBlank();
-    
+
     /**
      * Creates a new blank action
      */
-    protected CBlank(){
-        init( new CommonDockAction(){
-            public void bind( Dockable dockable ) {
+    protected CBlank() {
+        init(new CommonDockAction() {
+            public void bind(Dockable dockable) {
                 // ignore
             }
 
-            public <V> V createView( ViewTarget<V> target, ActionViewConverter converter, Dockable dockable ) {
+            public <V> V createView(ViewTarget<V> target, ActionViewConverter converter, Dockable dockable) {
                 return null;
             }
 
-            public boolean trigger( Dockable dockable ) {
+            public boolean trigger(Dockable dockable) {
                 return false;
             }
 
-            public void unbind( Dockable dockable ) {
+            public void unbind(Dockable dockable) {
                 // ignore
             }
-            
-            public CAction getAction(){
-            	return CBlank.this;
+
+            public CAction getAction() {
+                return CBlank.this;
             }
         });
     }

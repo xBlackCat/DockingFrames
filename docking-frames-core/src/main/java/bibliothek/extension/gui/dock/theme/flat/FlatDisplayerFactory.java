@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -42,51 +42,56 @@ import bibliothek.gui.dock.title.DockTitle;
  * A factory for instances of {@link DockableDisplayer}. This
  * factory either sets the border of its created displayers
  * to none or to a {@link FlatBorder}.
+ *
  * @author Benjamin Sigg
  */
-public class FlatDisplayerFactory implements DisplayerFactory{
-    /** Whether the created displayers should have a border */
-    private boolean border;
-    
+public class FlatDisplayerFactory implements DisplayerFactory {
+    /**
+     * Whether the created displayers should have a border
+     */
+    private final boolean border;
+
     /**
      * Creates a new factory
+     *
      * @param border Whether the displayers should have a border or not
      */
-    public FlatDisplayerFactory( boolean border ){
+    public FlatDisplayerFactory(boolean border) {
         this.border = border;
     }
-    
-    public void request( DisplayerRequest request ){
-    	Dockable dockable = request.getTarget();
-    	DockStation station = request.getParent();
-    	DockTitle title = request.getTitle();
-    	
-        Location location;
-        
-        if( dockable.asDockStation() != null )
-            location = DockableDisplayer.Location.LEFT;
-        else
-            location = DockableDisplayer.Location.TOP;
 
-        if( border ){
-            FlatDockableDisplayer displayer = new FlatDockableDisplayer( station, dockable, title, location );
-            displayer.setStacked( station instanceof StackDockStation );
-            request.answer( displayer );
+    public void request(DisplayerRequest request) {
+        Dockable dockable = request.getTarget();
+        DockStation station = request.getParent();
+        DockTitle title = request.getTitle();
+
+        Location location;
+
+        if (dockable.asDockStation() != null) {
+            location = DockableDisplayer.Location.LEFT;
+        } else {
+            location = DockableDisplayer.Location.TOP;
+        }
+
+        if (border) {
+            FlatDockableDisplayer displayer = new FlatDockableDisplayer(station, dockable, title, location);
+            displayer.setStacked(station instanceof StackDockStation);
+            request.answer(displayer);
             return;
         }
-        
-        BasicDockableDisplayer displayer = new BasicDockableDisplayer( station, dockable, title, location ){
-        	@Override
-        	protected BasicDockableDisplayerDecorator createStackedDecorator(){
-	        	return createStackedDecorator( FlatTheme.ACTION_DISTRIBUTOR );
-        	}
+
+        BasicDockableDisplayer displayer = new BasicDockableDisplayer(station, dockable, title, location) {
+            @Override
+            protected BasicDockableDisplayerDecorator createStackedDecorator() {
+                return createStackedDecorator(FlatTheme.ACTION_DISTRIBUTOR);
+            }
         };
-        displayer.setRespectBorderHint( false );
-        displayer.setDefaultBorderHint( false );
-        displayer.setSingleTabShowInnerBorder( false );
-        displayer.setSingleTabShowOuterBorder( false );
-        displayer.setStacked( station instanceof StackDockStation );
-        
-        request.answer( displayer );
+        displayer.setRespectBorderHint(false);
+        displayer.setDefaultBorderHint(false);
+        displayer.setSingleTabShowInnerBorder(false);
+        displayer.setSingleTabShowOuterBorder(false);
+        displayer.setStacked(station instanceof StackDockStation);
+
+        request.answer(displayer);
     }
 }

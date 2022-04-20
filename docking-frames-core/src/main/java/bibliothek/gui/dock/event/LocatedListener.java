@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -29,15 +29,16 @@ package bibliothek.gui.dock.event;
 import bibliothek.gui.dock.DockElement;
 
 /**
- * A located listener receives events only if they belong to a 
- * specific {@link DockElement} or a child of that element. 
- * @author Benjamin Sigg
+ * A located listener receives events only if they belong to a
+ * specific {@link DockElement} or a child of that element.
  *
+ * @author Benjamin Sigg
  */
 public interface LocatedListener {
     /**
      * Gets the location of this observer in the tree.
+     *
      * @return the location, <code>null</code> for an imaginary root.
      */
-    public DockElement getTreeLocation();
+    DockElement getTreeLocation();
 }

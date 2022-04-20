@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -31,52 +31,55 @@ import bibliothek.gui.dock.common.mode.ExtendedMode;
 import bibliothek.gui.dock.layout.DockableProperty;
 
 /**
- * This location represents an {@link ExtendedMode}. Using this location on a 
- * {@link CDockable} is equivalent of calling {@link CDockable#setExtendedMode(bibliothek.gui.dock.common.mode.ExtendedMode)}.
+ * This location represents an {@link ExtendedMode}. Using this location on a
+ * {@link CDockable} is equivalent of calling
+ * {@link CDockable#setExtendedMode(bibliothek.gui.dock.common.mode.ExtendedMode)}.
+ *
  * @author Benjamin Sigg
  */
-public class CExtendedModeLocation extends CLocation{
-	private ExtendedMode mode;
-	
-	/**
-	 * Creates a new location. 
-	 * @param mode the mode this location represents, not <code>null</code>
-	 */
-	public CExtendedModeLocation( ExtendedMode mode ){
-		if( mode == null ){
-			throw new IllegalArgumentException( "mode must not be null" );
-		}
-		this.mode = mode;
-	}
-	
-	@Override
-	public CLocation getParent(){
-		return null;
-	}
-	
-	/**
-	 * @deprecated see {@link CLocation#aside()} for an explanation.
-	 */
-	@Deprecated
-	@Override
-	public CLocation aside(){
-		return this;
-	}
+public class CExtendedModeLocation extends CLocation {
+    private ExtendedMode mode;
 
-	@Override
-	public CLocation expandProperty( DockableProperty property, CLocationExpandStrategy strategy ){
-		return null;
-	}
+    /**
+     * Creates a new location.
+     *
+     * @param mode the mode this location represents, not <code>null</code>
+     */
+    public CExtendedModeLocation(ExtendedMode mode) {
+        if (mode == null) {
+            throw new IllegalArgumentException("mode must not be null");
+        }
+        this.mode = mode;
+    }
 
-	public ExtendedMode findMode(){
-		return mode;
-	}
+    @Override
+    public CLocation getParent() {
+        return null;
+    }
 
-	public DockableProperty findProperty( DockableProperty successor ){
-		return successor;
-	}
+    /**
+     * @deprecated see {@link CLocation#aside()} for an explanation.
+     */
+    @Deprecated
+    @Override
+    public CLocation aside() {
+        return this;
+    }
 
-	public String findRoot(){
-		return null;
-	}
+    @Override
+    public CLocation expandProperty(DockableProperty property, CLocationExpandStrategy strategy) {
+        return null;
+    }
+
+    public ExtendedMode findMode() {
+        return mode;
+    }
+
+    public DockableProperty findProperty(DockableProperty successor) {
+        return successor;
+    }
+
+    public String findRoot() {
+        return null;
+    }
 }

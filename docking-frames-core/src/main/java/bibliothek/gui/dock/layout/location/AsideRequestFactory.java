@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -30,14 +30,16 @@ import bibliothek.gui.dock.layout.DockableProperty;
 
 /**
  * A factory creating new {@link AsideRequest}s.
+ *
  * @author Benjamin Sigg
  */
 public interface AsideRequestFactory {
-	/**
-	 * Creates a new {@link AsideRequest} for <code>dockable</code>.
-	 * @param location the location whose neighbor is searched
-	 * @param dockable the element whose new location is searched
-	 * @return the request for <code>dockable</code>
-	 */
-	public AsideRequest createAsideRequest( DockableProperty location, Dockable dockable );
+    /**
+     * Creates a new {@link AsideRequest} for <code>dockable</code>.
+     *
+     * @param location the location whose neighbor is searched
+     * @param dockable the element whose new location is searched
+     * @return the request for <code>dockable</code>
+     */
+    AsideRequest createAsideRequest(DockableProperty location, Dockable dockable);
 }

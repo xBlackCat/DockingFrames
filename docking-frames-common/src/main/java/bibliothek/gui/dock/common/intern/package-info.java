@@ -9,7 +9,7 @@
  *  but are not declared within this package</li>
  *  <li>Clients can use the methods and constants offered in this package</li>
  *  <li>These rules are not enforced in any way. Clients can use elements of this package,
- *  it may just not be the easiest solution</li> 
+ *  it may just not be the easiest solution</li>
  * </ul>
  */
 package bibliothek.gui.dock.common.intern;

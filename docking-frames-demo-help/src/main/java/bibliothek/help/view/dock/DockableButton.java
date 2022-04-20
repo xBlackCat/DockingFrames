@@ -17,68 +17,69 @@ import bibliothek.gui.dock.DockElementRepresentative;
 /**
  * A button that represents a {@link Dockable}. This button only paints
  * the icon of the {@link Dockable}.
+ *
  * @author Benjamin Sigg
  */
-public class DockableButton extends JComponent implements DockElementRepresentative{
+public class DockableButton extends JComponent implements DockElementRepresentative {
     private DockFrontend frontend;
     private Dockable dockable;
-    
-    public DockableButton( DockFrontend frontend, Dockable dockable ){
+
+    public DockableButton(DockFrontend frontend, Dockable dockable) {
         this.frontend = frontend;
         this.dockable = dockable;
-        setBorder( BorderFactory.createEtchedBorder() );
-        setToolTipText( dockable.getTitleText() );
-        
-        addMouseListener( new MouseAdapter(){
+        setBorder(BorderFactory.createEtchedBorder());
+        setToolTipText(dockable.getTitleText());
+
+        addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked( MouseEvent e ) {
-                if( !e.isPopupTrigger() ){
-                    if( !e.isConsumed() ){
+            public void mouseClicked(MouseEvent e) {
+                if (!e.isPopupTrigger()) {
+                    if (!e.isConsumed()) {
                         e.consume();
-                        DockableButton.this.frontend.show( DockableButton.this.dockable );
+                        DockableButton.this.frontend.show(DockableButton.this.dockable);
                     }
                 }
             }
         });
     }
-    
+
     @Override
     public Dimension getPreferredSize() {
         Insets insets = getInsets();
         Icon icon = dockable.getTitleIcon();
-        
+
         int width = insets.left + insets.right;
         int height = insets.top + insets.bottom;
-        
-        if( icon != null ){
+
+        if (icon != null) {
             width += icon.getIconWidth() + 2;
             height += icon.getIconHeight() + 2;
         }
-        
-        return new Dimension( width, height ); 
-    }
-    
-    @Override
-    protected void paintComponent( Graphics g ) {
-        super.paintComponent( g );
-        Icon icon = dockable.getTitleIcon();
-        if( icon != null ){
-            icon.paintIcon( this, g, 
-                    (getWidth()-icon.getIconWidth())/2, 
-                    (getHeight()-icon.getIconHeight())/2 );
-        }
-    }
-    
-    public void addMouseInputListener( MouseInputListener listener ) {
-        addMouseListener( listener );
-        addMouseMotionListener( listener );
+
+        return new Dimension(width, height);
     }
 
-    public void removeMouseInputListener( MouseInputListener listener ) {
-        removeMouseListener( listener );
-        removeMouseMotionListener( listener );
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Icon icon = dockable.getTitleIcon();
+        if (icon != null) {
+            icon.paintIcon(this, g,
+                    (getWidth() - icon.getIconWidth()) / 2,
+                    (getHeight() - icon.getIconHeight()) / 2);
+        }
     }
-    
+
+    public void addMouseInputListener(MouseInputListener listener) {
+        addMouseListener(listener);
+        addMouseMotionListener(listener);
+    }
+
+    public void removeMouseInputListener(MouseInputListener listener) {
+        removeMouseListener(listener);
+        removeMouseMotionListener(listener);
+    }
+
     public Component getComponent() {
         return this;
     }
@@ -86,23 +87,24 @@ public class DockableButton extends JComponent implements DockElementRepresentat
     public DockElement getElement() {
         return dockable;
     }
-    
+
     public boolean isUsedAsTitle() {
         return false;
     }
-    
-    public boolean shouldFocus(){
-    	return true;
-    }
-    
-    public boolean shouldTransfersFocus(){
-    	return false;
+
+    public boolean shouldFocus() {
+        return true;
     }
 
-    public Point getPopupLocation( Point click, boolean popupTrigger ) {
-        if( popupTrigger )
+    public boolean shouldTransfersFocus() {
+        return false;
+    }
+
+    public Point getPopupLocation(Point click, boolean popupTrigger) {
+        if (popupTrigger) {
             return click;
-        
+        }
+
         return null;
     }
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2011 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -28,12 +28,14 @@ package bibliothek.gui.dock.action.popup;
 /**
  * A listener that is added to a {@link ActionPopupMenu} and is called
  * if the menu is closed.
+ *
  * @author Benjamin Sigg
  */
 public interface ActionPopupMenuListener {
-	/**
-	 * Called by <code>menu</code> once it is closed.
-	 * @param menu the menu that closed
-	 */
-	public void closed( ActionPopupMenu menu );
+    /**
+     * Called by <code>menu</code> once it is closed.
+     *
+     * @param menu the menu that closed
+     */
+    void closed(ActionPopupMenu menu);
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2009 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -30,29 +30,33 @@ import bibliothek.gui.dock.common.action.CPanelPopup;
 /**
  * A {@link PanelPopupWindow} is a wrapper around the element (window, dialog,
  * menu...) which shows the content of a {@link CPanelPopup}.
+ *
  * @author Benjamin Sigg
  */
 public interface PanelPopupWindow {
-	/**
-	 * Makes this window invisible
-	 */
-	public void close();
-	
-	/**
-	 * Tells whether this window is visible or not.
-	 * @return <code>true</code> if visible
-	 */
-	public boolean isOpen();
-	
-	/**
-	 * Adds a listener to this window.
-	 * @param listener the new listener
-	 */
-	public void addListener( PanelPopupWindowListener listener );
-	
-	/**
-	 * Removes a listener from this window.
-	 * @param listener the listener
-	 */
-	public void removeListener( PanelPopupWindowListener listener );
+    /**
+     * Makes this window invisible
+     */
+    void close();
+
+    /**
+     * Tells whether this window is visible or not.
+     *
+     * @return <code>true</code> if visible
+     */
+    boolean isOpen();
+
+    /**
+     * Adds a listener to this window.
+     *
+     * @param listener the new listener
+     */
+    void addListener(PanelPopupWindowListener listener);
+
+    /**
+     * Removes a listener from this window.
+     *
+     * @param listener the listener
+     */
+    void removeListener(PanelPopupWindowListener listener);
 }

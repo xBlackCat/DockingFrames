@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Herve Guillaume, Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Herve Guillaume
  * rvguillaume@hotmail.com
  * FR - France
@@ -39,76 +39,84 @@ import bibliothek.gui.dock.station.support.CombinerTarget;
 /**
  * This class contains and computes information about a drag and drop action of
  * a {@link ToolbarDockStation}.
- * 
+ *
  * @author Herve Guillaume
  */
-public abstract class ToolbarDropInfo implements StationDropOperation{
-	/** The {@link Dockable} which is inserted */
-	private Dockable dockable;
-	
-	/** The new parent of {@link #dockable}. */
-	private ToolbarDockStation station;
-	
-	/** The index {@link #dockable} will have after insertion */
-	private int index;
+public abstract class ToolbarDropInfo implements StationDropOperation {
+    /**
+     * The {@link Dockable} which is inserted
+     */
+    private final Dockable dockable;
 
-	/**
-	 * Creates new drop information.
-	 * @param dockable the item that is dropped
-	 * @param station the new parent of {@link #dockable}
-	 * @param index where to insert {@link #dockable}
-	 */
-	public ToolbarDropInfo( Dockable dockable, ToolbarDockStation station, int index ){
-		this.dockable = dockable;
-		this.station = station;
-		this.index = index;
-	}
+    /**
+     * The new parent of {@link #dockable}.
+     */
+    private final ToolbarDockStation station;
 
-	@Override
-	public Dockable getItem(){
-		return dockable;
-	}
+    /**
+     * The index {@link #dockable} will have after insertion
+     */
+    private final int index;
 
-	@Override
-	public ToolbarDockStation getTarget(){
-		return station;
-	}
+    /**
+     * Creates new drop information.
+     *
+     * @param dockable the item that is dropped
+     * @param station  the new parent of {@link #dockable}
+     * @param index    where to insert {@link #dockable}
+     */
+    public ToolbarDropInfo(Dockable dockable, ToolbarDockStation station, int index) {
+        this.dockable = dockable;
+        this.station = station;
+        this.index = index;
+    }
 
-	/**
-	 * Gets the location the {@link #getItem() item} would have after inserting
-	 * into the {@link #getTarget() target}.
-	 * @return the new position
-	 */
-	public int getIndex(){
-		return index;
-	}
-	
-	@Override
-	public CombinerTarget getCombination(){
-		// not supported by this kind of station
-		return null;
-	}
+    @Override
+    public Dockable getItem() {
+        return dockable;
+    }
 
-	@Override
-	public DisplayerCombinerTarget getDisplayerCombination(){
-		// not supported by this kind of station
-		return null;
-	}
+    @Override
+    public ToolbarDockStation getTarget() {
+        return station;
+    }
 
-	@Override
-	public boolean isMove(){
-		return getItem().getDockParent() == getTarget();
-	}
-	
-	public boolean hasNoEffect(){
-		if( !isMove() ){
-			return false;
-		}
-		int oldIndex = station.indexOf( dockable );
-		int index = this.index;
-		if( oldIndex < index ){
-			index--;
-		}
-		return oldIndex == index;
-	}
+    /**
+     * Gets the location the {@link #getItem() item} would have after inserting
+     * into the {@link #getTarget() target}.
+     *
+     * @return the new position
+     */
+    public int getIndex() {
+        return index;
+    }
+
+    @Override
+    public CombinerTarget getCombination() {
+        // not supported by this kind of station
+        return null;
+    }
+
+    @Override
+    public DisplayerCombinerTarget getDisplayerCombination() {
+        // not supported by this kind of station
+        return null;
+    }
+
+    @Override
+    public boolean isMove() {
+        return getItem().getDockParent() == getTarget();
+    }
+
+    public boolean hasNoEffect() {
+        if (!isMove()) {
+            return false;
+        }
+        int oldIndex = station.indexOf(dockable);
+        int index = this.index;
+        if (oldIndex < index) {
+            index--;
+        }
+        return oldIndex == index;
+    }
 }

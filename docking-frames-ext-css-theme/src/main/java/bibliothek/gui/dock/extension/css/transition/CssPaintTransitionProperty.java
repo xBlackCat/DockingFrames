@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -32,30 +32,32 @@ import bibliothek.gui.dock.extension.css.property.paint.CssPaint;
 
 /**
  * A property for handling a {@link CssPaint} with a transition.
+ *
  * @author Benjamin Sigg
  */
-public abstract class CssPaintTransitionProperty extends CssContainerTransitionProperty<CssPaint>{
-	/**
-	 * Creates the new property.
-	 * @param scheme the scheme in whose realm this property will work
-	 * @param item the item to which this property belongs
-	 */
-	public CssPaintTransitionProperty( CssScheme scheme, CssItem item ){
-		super( scheme, item );
-	}
+public abstract class CssPaintTransitionProperty extends CssContainerTransitionProperty<CssPaint> {
+    /**
+     * Creates the new property.
+     *
+     * @param scheme the scheme in whose realm this property will work
+     * @param item   the item to which this property belongs
+     */
+    public CssPaintTransitionProperty(CssScheme scheme, CssItem item) {
+        super(scheme, item);
+    }
 
-	@Override
-	public CssType<CssPaint> getType( CssScheme scheme ){
-		return scheme.getConverter( CssPaint.class );
-	}
+    @Override
+    public CssType<CssPaint> getType(CssScheme scheme) {
+        return scheme.getConverter(CssPaint.class);
+    }
 
-	@Override
-	protected void bind(){
-		// ignore
-	}
+    @Override
+    protected void bind() {
+        // ignore
+    }
 
-	@Override
-	protected void unbind(){
-		// ignore
-	}
+    @Override
+    protected void unbind() {
+        // ignore
+    }
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,64 +18,69 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
  */
 package bibliothek.gui.dock.common.intern.color;
 
-import java.awt.Color;
-
 import bibliothek.gui.dock.common.ColorMap;
 import bibliothek.gui.dock.themes.basic.BasicDockTitle;
 import bibliothek.gui.dock.util.color.ColorManager;
 import bibliothek.util.Colors;
 
+import java.awt.*;
+
 /**
  * A connection between the {@link ColorMap}s and the {@link BasicDockTitle}s.
+ *
  * @author Benjamin Sigg
  */
 public class BasicTitleTransmitter extends TitleColorTransmitter {
-    private static final String[] KEYS = { 
-        "title.active.left", "title.inactive.left", 
-        "title.active.right", "title.inactive.right", 
-        "title.active.text", "title.inactive.text" };
-        
+    private static final String[] KEYS = {
+            "title.active.left", "title.inactive.left",
+            "title.active.right", "title.inactive.right",
+            "title.active.text", "title.inactive.text"};
+
     /**
      * Creates a new transmitter.
+     *
      * @param manager the source of colors
      */
-    public BasicTitleTransmitter( ColorManager manager ){
-        super( manager, KEYS );
+    public BasicTitleTransmitter(ColorManager manager) {
+        super(manager, KEYS);
     }
-        
+
     @Override
-    protected Color convert( Color source, String key ) {
-    	if( isFocused( key ))
-            return convertFocused( source, key );
-        
-        if( "title.inactive.text".equals( key ))
-            return Colors.diffMirror( source, 1.0 );
-        
+    protected Color convert(Color source, String key) {
+        if (isFocused(key)) {
+            return convertFocused(source, key);
+        }
+
+        if ("title.inactive.text".equals(key)) {
+            return Colors.diffMirror(source, 1.0);
+        }
+
         return source;
     }
 
     @Override
-    protected Color convertFocused( Color source, String key ) {
-        if( "title.active.text".equals( key ))
-            return Colors.diffMirror( source, 1.0 );
-        
+    protected Color convertFocused(Color source, String key) {
+        if ("title.active.text".equals(key)) {
+            return Colors.diffMirror(source, 1.0);
+        }
+
         return source;
     }
 
     @Override
-    protected boolean isFocused( String id ) {
-        return id.contains( "active" ) && !id.contains( "inactive" );
+    protected boolean isFocused(String id) {
+        return id.contains("active") && !id.contains("inactive");
     }
 
     @Override
-    protected boolean isForeground( String id ) {
-        return id.contains( "text" );
+    protected boolean isForeground(String id) {
+        return id.contains("text");
     }
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Herve Guillaume, Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Herve Guillaume
  * rvguillaume@hotmail.com
  * FR - France
@@ -30,69 +30,69 @@
 
 package bibliothek.gui.dock.station;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import bibliothek.gui.Dockable;
 import bibliothek.gui.Orientation;
 import bibliothek.gui.dock.StackDockStation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A {@link StackDockStation} modified such that it can show toolbar items.
- * 
+ *
  * @author Benjamin Sigg
  */
-public class ToolbarTabDockStation extends StackDockStation implements OrientedDockStation{
-	private List<OrientingDockStationListener> listeners = new ArrayList<OrientingDockStationListener>( 5 );
-	private Orientation orientation = Orientation.VERTICAL;
-	
-	public ToolbarTabDockStation(){
-		setSmallMinimumSize(false);
-		setTitleIcon(null);
-		
-		new OrientationObserver( this ){
-			@Override
-			protected void orientationChanged( Orientation current ){
-				if( current != null ){	
-					setOrientation( current );
-				}
-			}
-		};
-	}
+public class ToolbarTabDockStation extends StackDockStation implements OrientedDockStation {
+    private final List<OrientingDockStationListener> listeners = new ArrayList<>(5);
+    private Orientation orientation = Orientation.VERTICAL;
 
-	@Override
-	public String getFactoryID(){
-		return ToolbarTabDockStationFactory.FACTORY_ID;
-	}
+    public ToolbarTabDockStation() {
+        setSmallMinimumSize(false);
+        setTitleIcon(null);
 
-	@Override
-	public Orientation getOrientationOf( Dockable child ){
-		return orientation;
-	}
+        new OrientationObserver(this) {
+            @Override
+            protected void orientationChanged(Orientation current) {
+                if (current != null) {
+                    setOrientation(current);
+                }
+            }
+        };
+    }
 
-	@Override
-	public void addOrientingDockStationListener( OrientingDockStationListener listener ){
-		listeners.add( listener );
-	}
+    @Override
+    public String getFactoryID() {
+        return ToolbarTabDockStationFactory.FACTORY_ID;
+    }
 
-	@Override
-	public void removeOrientingDockStationListener( OrientingDockStationListener listener ){
-		listeners.remove( listener );
-	}
+    @Override
+    public Orientation getOrientationOf(Dockable child) {
+        return orientation;
+    }
 
-	@Override
-	public void setOrientation( Orientation orientation ){
-		if( this.orientation != orientation ){
-			this.orientation = orientation;
-			OrientingDockStationEvent event = new OrientingDockStationEvent( this );
-			for( OrientingDockStationListener listener : listeners.toArray( new OrientingDockStationListener[ listeners.size() ] )){
-				listener.changed( event );
-			}
-		}
-	}
+    @Override
+    public void addOrientingDockStationListener(OrientingDockStationListener listener) {
+        listeners.add(listener);
+    }
 
-	@Override
-	public Orientation getOrientation(){
-		return orientation;
-	}
+    @Override
+    public void removeOrientingDockStationListener(OrientingDockStationListener listener) {
+        listeners.remove(listener);
+    }
+
+    @Override
+    public void setOrientation(Orientation orientation) {
+        if (this.orientation != orientation) {
+            this.orientation = orientation;
+            OrientingDockStationEvent event = new OrientingDockStationEvent(this);
+            for (OrientingDockStationListener listener : listeners.toArray(new OrientingDockStationListener[0])) {
+                listener.changed(event);
+            }
+        }
+    }
+
+    @Override
+    public Orientation getOrientation() {
+        return orientation;
+    }
 }

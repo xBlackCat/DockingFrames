@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2011 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -33,33 +33,35 @@ import bibliothek.gui.dock.station.layer.LayerPriority;
 
 /**
  * Describes the area covered by the currently open {@link FlapWindow}.
+ *
  * @author Benjamin Sigg
  */
-public class WindowDropLayer extends DefaultDropLayer{
-	private FlapDockStation station;
-	
-	/**
-	 * Creates a new layer.
-	 * @param station the owner of this level
-	 */
-	public WindowDropLayer( FlapDockStation station ){
-		super( station );
-		this.station = station;
-		setPriority( LayerPriority.FLOAT_ANCHORED );
-	}
-	
-	@Override
-	public boolean contains( int x, int y ){
-		FlapWindow window = station.getFlapWindow();
-		if( window != null && window.isWindowVisible() ){
-			return window.getWindowBounds().contains( x, y );
-		}
-		return false;
-	}
-	
-	@Override
-	public DockStationDropLayer modify( DockStationDropLayer child ){
-		child.setPriority( getPriority().merge( child.getPriority() ));
-		return child;
-	}
+public class WindowDropLayer extends DefaultDropLayer {
+    private final FlapDockStation station;
+
+    /**
+     * Creates a new layer.
+     *
+     * @param station the owner of this level
+     */
+    public WindowDropLayer(FlapDockStation station) {
+        super(station);
+        this.station = station;
+        setPriority(LayerPriority.FLOAT_ANCHORED);
+    }
+
+    @Override
+    public boolean contains(int x, int y) {
+        FlapWindow window = station.getFlapWindow();
+        if (window != null && window.isWindowVisible()) {
+            return window.getWindowBounds().contains(x, y);
+        }
+        return false;
+    }
+
+    @Override
+    public DockStationDropLayer modify(DockStationDropLayer child) {
+        child.setPriority(getPriority().merge(child.getPriority()));
+        return child;
+    }
 }

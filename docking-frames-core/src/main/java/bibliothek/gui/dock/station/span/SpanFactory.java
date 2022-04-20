@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -32,14 +32,16 @@ import bibliothek.gui.dock.themes.ThemeManager;
 /**
  * A {@link SpanFactory} creates new {@link Span}s.<br>
  * The current {@link SpanFactory} can be configured using the {@link ThemeManager} or using
- * {@link DockTheme#SPAN_FACTORY}. 
+ * {@link DockTheme#SPAN_FACTORY}.
+ *
  * @author Benjamin Sigg
  */
 public interface SpanFactory {
-	/**
-	 * Creates a new {@link Span}.
-	 * @param callback allows interaction between {@link Span} and {@link DockStation}.
-	 * @return the new {@link Span}, not <code>null</code>
-	 */
-	public Span create( SpanCallback callback );
+    /**
+     * Creates a new {@link Span}.
+     *
+     * @param callback allows interaction between {@link Span} and {@link DockStation}.
+     * @return the new {@link Span}, not <code>null</code>
+     */
+    Span create(SpanCallback callback);
 }

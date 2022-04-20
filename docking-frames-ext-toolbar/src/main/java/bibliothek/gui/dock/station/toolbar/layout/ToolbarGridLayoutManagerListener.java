@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2013 Herve Guillaume, Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Herve Guillaume
  * rvguillaume@hotmail.com
  * FR - France
@@ -29,16 +29,18 @@
  */
 package bibliothek.gui.dock.station.toolbar.layout;
 
-import java.awt.Container;
+import java.awt.*;
 
 /**
  * An observer that is added to a {@link ToolbarGridLayoutManager}.
+ *
  * @author Benjamin Sigg
  */
 public interface ToolbarGridLayoutManagerListener {
-	/**
-	 * This method is called after the layout of <code>container</code> was validated.
-	 * @param container the source of the event
-	 */
-	public void didLayout( Container container );
+    /**
+     * This method is called after the layout of <code>container</code> was validated.
+     *
+     * @param container the source of the event
+     */
+    void didLayout(Container container);
 }

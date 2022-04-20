@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2009 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -30,37 +30,43 @@ import bibliothek.gui.Dockable;
 /**
  * A {@link TabMenu} is a list of one or several {@link Dockable}s, the user
  * can open the menu and select one of them.
+ *
  * @author Benjamin Sigg
  */
-public interface TabMenu extends TabPaneComponent{
-	/**
-	 * Gets all the {@link Dockable}s that are shown in this menu.
-	 * @return the list of elements in this menu
-	 */
-	public Dockable[] getDockables();
-	
-	/**
-	 * Gets the index'th {@link Dockable} of this menu.
-	 * @param index the index of an item
-	 * @return the item
-	 */
-	public Dockable getDockable( int index );
-	
-	/**
-	 * Gets the number of {@link Dockable}s shown on this menu.
-	 * @return the number of items
-	 */
-	public int getDockableCount();
-	
-	/**
-	 * Adds a new listener to this menu.
-	 * @param listener the new listener, not <code>null</code>
-	 */
-	public void addTabMenuListener( TabMenuListener listener );
-	
-	/**
-	 * Removes <code>listener</code> from this menu.
-	 * @param listener the listener to remove
-	 */
-	public void removeTabMenuListener( TabMenuListener listener );
+public interface TabMenu extends TabPaneComponent {
+    /**
+     * Gets all the {@link Dockable}s that are shown in this menu.
+     *
+     * @return the list of elements in this menu
+     */
+    Dockable[] getDockables();
+
+    /**
+     * Gets the index'th {@link Dockable} of this menu.
+     *
+     * @param index the index of an item
+     * @return the item
+     */
+    Dockable getDockable(int index);
+
+    /**
+     * Gets the number of {@link Dockable}s shown on this menu.
+     *
+     * @return the number of items
+     */
+    int getDockableCount();
+
+    /**
+     * Adds a new listener to this menu.
+     *
+     * @param listener the new listener, not <code>null</code>
+     */
+    void addTabMenuListener(TabMenuListener listener);
+
+    /**
+     * Removes <code>listener</code> from this menu.
+     *
+     * @param listener the listener to remove
+     */
+    void removeTabMenuListener(TabMenuListener listener);
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Herve Guillaume, Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Herve Guillaume
  * rvguillaume@hotmail.com
  * FR - France
@@ -45,58 +45,64 @@ import bibliothek.util.Path;
 
 /**
  * A {@link LocationMode} describing items that are part of a toolbar.
+ *
  * @author Benjamin Sigg
  */
-public class ToolbarMode<T extends StationModeArea> extends DefaultLocationMode<T>{
-	/** the unique identifier of this mode */
-	public static final Path IDENTIFIER = new Path( "dock.mode.toolbar" );
-	
-	/** the mode described by {@link ToolbarMode} */
-	public static final ExtendedMode TOOLBAR = new ExtendedMode( IDENTIFIER );
+public class ToolbarMode<T extends StationModeArea> extends DefaultLocationMode<T> {
+    /**
+     * the unique identifier of this mode
+     */
+    public static final Path IDENTIFIER = new Path("dock.mode.toolbar");
 
-	private DockController controller;
-	
-	/**
-	 * Creates the new mode.
-	 * @param controller the controller in whose realm this mode is used
-	 */
-	public ToolbarMode( DockController controller ){
-		this.controller = controller;
-	}
-	
-	@Override
-	public ExtendedMode getExtendedMode(){
-		return TOOLBAR;
-	}
+    /**
+     * the mode described by {@link ToolbarMode}
+     */
+    public static final ExtendedMode TOOLBAR = new ExtendedMode(IDENTIFIER);
 
-	@Override
-	public void ensureNotHidden( Dockable dockable ){
-		// ignore
-	}
+    private final DockController controller;
 
-	@Override
-	public Path getUniqueIdentifier(){
-		return IDENTIFIER;
-	}
+    /**
+     * Creates the new mode.
+     *
+     * @param controller the controller in whose realm this mode is used
+     */
+    public ToolbarMode(DockController controller) {
+        this.controller = controller;
+    }
 
-	@Override
-	public boolean isDefaultMode( Dockable dockable ){
-		ToolbarStrategy strategy = controller.getProperties().get( ToolbarStrategy.STRATEGY );
-		return strategy.isToolbarGroupPart( dockable );
-	}
+    @Override
+    public ExtendedMode getExtendedMode() {
+        return TOOLBAR;
+    }
 
-	@Override
-	public void writeSetting( ModeSetting<Location> setting ){
-		// ignore
-	}
+    @Override
+    public void ensureNotHidden(Dockable dockable) {
+        // ignore
+    }
 
-	@Override
-	public void readSetting( ModeSetting<Location> setting ){
-		// ignore
-	}
+    @Override
+    public Path getUniqueIdentifier() {
+        return IDENTIFIER;
+    }
 
-	@Override
-	public ModeSettingFactory<Location> getSettingFactory(){
-		return new NullModeSettingsFactory<Location>( getUniqueIdentifier() );
-	}
+    @Override
+    public boolean isDefaultMode(Dockable dockable) {
+        ToolbarStrategy strategy = controller.getProperties().get(ToolbarStrategy.STRATEGY);
+        return strategy.isToolbarGroupPart(dockable);
+    }
+
+    @Override
+    public void writeSetting(ModeSetting<Location> setting) {
+        // ignore
+    }
+
+    @Override
+    public void readSetting(ModeSetting<Location> setting) {
+        // ignore
+    }
+
+    @Override
+    public ModeSettingFactory<Location> getSettingFactory() {
+        return new NullModeSettingsFactory<>(getUniqueIdentifier());
+    }
 }

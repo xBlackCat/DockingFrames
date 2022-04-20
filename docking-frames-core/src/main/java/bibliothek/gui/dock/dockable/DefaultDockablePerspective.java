@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2010 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -34,32 +34,33 @@ import bibliothek.util.Path;
 
 /**
  * Implementation of a {@link PerspectiveElement} that represents a {@link DefaultDockable}.
+ *
  * @author Benjamin Sigg
  */
-public class DefaultDockablePerspective implements PerspectiveDockable{
-	private PerspectiveStation parent;
-	
-	public void setParent( PerspectiveStation parent ){
-		this.parent = parent;	
-	}
-	
-	public PerspectiveStation getParent(){
-		return parent;
-	}
+public class DefaultDockablePerspective implements PerspectiveDockable {
+    private PerspectiveStation parent;
 
-	public Path getPlaceholder(){
-		return null;
-	}
+    public void setParent(PerspectiveStation parent) {
+        this.parent = parent;
+    }
 
-	public PerspectiveDockable asDockable(){
-		return this;
-	}
+    public PerspectiveStation getParent() {
+        return parent;
+    }
 
-	public PerspectiveStation asStation(){
-		return null;
-	}
+    public Path getPlaceholder() {
+        return null;
+    }
 
-	public String getFactoryID(){
-		return DefaultDockableFactory.ID;
-	}
+    public PerspectiveDockable asDockable() {
+        return this;
+    }
+
+    public PerspectiveStation asStation() {
+        return null;
+    }
+
+    public String getFactoryID() {
+        return DefaultDockableFactory.ID;
+    }
 }

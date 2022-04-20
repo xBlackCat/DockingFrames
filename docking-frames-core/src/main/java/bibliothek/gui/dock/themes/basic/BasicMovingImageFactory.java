@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,16 +18,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
  */
 package bibliothek.gui.dock.themes.basic;
-
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 
 import bibliothek.gui.DockController;
 import bibliothek.gui.Dockable;
@@ -35,39 +31,43 @@ import bibliothek.gui.dock.dockable.DockableMovingImageFactory;
 import bibliothek.gui.dock.dockable.MovingImage;
 import bibliothek.gui.dock.dockable.TrueMovingImage;
 import bibliothek.gui.dock.title.DockTitle;
+import bibliothek.gui.dock.title.DockTitle.Orientation;
 import bibliothek.gui.dock.title.DockTitleManager;
 import bibliothek.gui.dock.title.DockTitleVersion;
 import bibliothek.gui.dock.title.UpdatingTitleMovingImage;
-import bibliothek.gui.dock.title.DockTitle.Orientation;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * A factory whose {@link MovingImage}s display a {@link DockTitle}.
+ *
  * @author Benjamin Sigg
  */
 public class BasicMovingImageFactory implements DockableMovingImageFactory {
-    public MovingImage create( DockController controller, DockTitle snatched ) {
-        if( snatched.getOrigin() != null ){
+    public MovingImage create(DockController controller, DockTitle snatched) {
+        if (snatched.getOrigin() != null) {
             DockTitleVersion origin = snatched.getOrigin();
-            return new UpdatingTitleMovingImage( snatched.getDockable(), origin, snatched.getOrientation() );
+            return new UpdatingTitleMovingImage(snatched.getDockable(), origin, snatched.getOrientation());
         }
 
         /* TODO find a way to use the preferred size */
         Component c = snatched.getComponent();
         BufferedImage image = new BufferedImage(
-                Math.max( 1, c.getWidth()),
-                Math.max( 1, c.getHeight()),
-                BufferedImage.TYPE_INT_ARGB );
+                Math.max(1, c.getWidth()),
+                Math.max(1, c.getHeight()),
+                BufferedImage.TYPE_INT_ARGB);
         Graphics graphics = image.getGraphics();
-        c.paint( graphics );
+        c.paint(graphics);
         graphics.dispose();
 
         TrueMovingImage moving = new TrueMovingImage();
-        moving.setImage( image );
+        moving.setImage(image);
         return moving;
     }
 
-    public MovingImage create( DockController controller, Dockable dockable ) {
-    	DockTitleVersion version = controller.getDockTitleManager().getVersion( DockTitleManager.THEME_FACTORY_ID );
-    	return new UpdatingTitleMovingImage( dockable, version, Orientation.FREE_HORIZONTAL );
+    public MovingImage create(DockController controller, Dockable dockable) {
+        DockTitleVersion version = controller.getDockTitleManager().getVersion(DockTitleManager.THEME_FACTORY_ID);
+        return new UpdatingTitleMovingImage(dockable, version, Orientation.FREE_HORIZONTAL);
     }
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2013 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -33,30 +33,31 @@ import bibliothek.gui.dock.util.font.GenericFontModifier.Modify;
 
 /**
  * Converts a String into a {@link Modify}.
+ *
  * @author Benjamin Sigg
  */
-public class FontModifyType implements CssType<Modify>{
-	@Override
-	public Modify convert( CssDeclarationValue value ){
-		String text = value.getSingleValue().toLowerCase();
-		
-		if( "on".equals( text ) || "true".equals( text )){
-			return Modify.ON;
-		}
-		if( "off".equals( text ) || "false".equals( text )){
-			return Modify.OFF;
-		}
-		if( "ignore".equals( text )){
-			return Modify.IGNORE;
-		}
-		if( "reverse".equals( text )){
-			return Modify.REVERSE;
-		}
-		return null;
-	}
+public class FontModifyType implements CssType<Modify> {
+    @Override
+    public Modify convert(CssDeclarationValue value) {
+        String text = value.getSingleValue().toLowerCase();
 
-	@Override
-	public TransitionalCssProperty<Modify> createTransition(){
-		return new MiddleTransitionalCssProperty<Modify>();
-	}	
+        if ("on".equals(text) || "true".equals(text)) {
+            return Modify.ON;
+        }
+        if ("off".equals(text) || "false".equals(text)) {
+            return Modify.OFF;
+        }
+        if ("ignore".equals(text)) {
+            return Modify.IGNORE;
+        }
+        if ("reverse".equals(text)) {
+            return Modify.REVERSE;
+        }
+        return null;
+    }
+
+    @Override
+    public TransitionalCssProperty<Modify> createTransition() {
+        return new MiddleTransitionalCssProperty<>();
+    }
 }

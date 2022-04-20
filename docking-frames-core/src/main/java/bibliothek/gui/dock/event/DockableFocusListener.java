@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -32,12 +32,14 @@ import bibliothek.gui.Dockable;
 /**
  * A listener added to a {@link DockController}, this listener gets informed
  * when the focused {@link Dockable} is exchanged.
+ *
  * @author Benjamin Sigg
  */
 public interface DockableFocusListener {
     /**
-     * Invoked when <code>dockable</code> has gained the focus. 
+     * Invoked when <code>dockable</code> has gained the focus.
+     *
      * @param event an event that contains the new owner of the focus
      */
-    public void dockableFocused( DockableFocusEvent event );
+    void dockableFocused(DockableFocusEvent event);
 }

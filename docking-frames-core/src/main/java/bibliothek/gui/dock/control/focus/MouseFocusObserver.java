@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -32,22 +32,25 @@ import bibliothek.util.FrameworkOnly;
 
 /**
  * A {@link MouseFocusObserver} tracks the movement and actions of the mouse and is responsible for
- * transferring the focus by calling {@link DockController#setFocusedDockable(Dockable, java.awt.Component, boolean, boolean, boolean)}
+ * transferring the focus by calling
+ * {@link DockController#setFocusedDockable(Dockable, java.awt.Component, boolean, boolean, boolean)}
  * at an appropriate time.
+ *
  * @author Benjamin Sigg
  */
 public interface MouseFocusObserver {
     /**
      * Gets the {@link DockController} whose {@link Dockable}s are tracked by this observer.
+     *
      * @return the controller
      */
-    public DockController getController();
-    
+    DockController getController();
+
     /**
      * Stops this FocusController. This controller will remove all
      * its listeners and become ready for the garbage collector.<br>
-     * This method should not be called by clients. 
+     * This method should not be called by clients.
      */
     @FrameworkOnly
-    public void kill();
+    void kill();
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -33,56 +33,59 @@ import bibliothek.gui.dock.station.split.*;
 /**
  * A {@link SplitLayoutManager} which delegates all its work to another manager.
  * This class is intended to be subclassed in order to override some methods.
+ *
  * @author Benjamin Sigg
  */
 public class DelegatingSplitLayoutManager implements SplitLayoutManager {
     private SplitLayoutManager delegate;
-    
+
     /**
      * Creates a new manager
+     *
      * @param delegate the manager whose methods will be called unless a
-     * subclass has overridden them.
+     *                 subclass has overridden them.
      */
-    public DelegatingSplitLayoutManager( SplitLayoutManager delegate ){
-        if( delegate == null )
-            throw new NullPointerException( "delegate must not be null" );
+    public DelegatingSplitLayoutManager(SplitLayoutManager delegate) {
+        if (delegate == null) {
+            throw new NullPointerException("delegate must not be null");
+        }
         this.delegate = delegate;
     }
-    
-    public void calculateDivider( SplitDockStation station, PutInfo putInfo, Leaf origin, StationDropItem item ) {
-        delegate.calculateDivider( station, putInfo, origin, item );
+
+    public void calculateDivider(SplitDockStation station, PutInfo putInfo, Leaf origin, StationDropItem item) {
+        delegate.calculateDivider(station, putInfo, origin, item);
     }
 
-    public void install( SplitDockStation station ) {
-        delegate.install( station );
+    public void install(SplitDockStation station) {
+        delegate.install(station);
     }
 
-    public PutInfo prepareDrop( SplitDockStation station, StationDropItem dockable ){
-        return delegate.prepareDrop( station, dockable );
+    public PutInfo prepareDrop(SplitDockStation station, StationDropItem dockable) {
+        return delegate.prepareDrop(station, dockable);
     }
 
-    public PutInfo prepareMove( SplitDockStation station, StationDropItem dockable ){
-        return delegate.prepareMove( station, dockable );
+    public PutInfo prepareMove(SplitDockStation station, StationDropItem dockable) {
+        return delegate.prepareMove(station, dockable);
     }
 
-    public void uninstall( SplitDockStation station ) {
-        delegate.uninstall( station );
+    public void uninstall(SplitDockStation station) {
+        delegate.uninstall(station);
     }
 
-    public void updateBounds( Root root, double x, double y, double factorW, double factorH ) {
-        delegate.updateBounds( root, x, y, factorW, factorH );
+    public void updateBounds(Root root, double x, double y, double factorW, double factorH) {
+        delegate.updateBounds(root, x, y, factorW, factorH);
     }
 
-    public double validateDivider( SplitDockStation station, double divider, Node node ) {
-        return delegate.validateDivider( station, divider, node );
+    public double validateDivider(SplitDockStation station, double divider, Node node) {
+        return delegate.validateDivider(station, divider, node);
     }
 
-    public PutInfo validatePutInfo( SplitDockStation station, PutInfo info ) {
-        return delegate.validatePutInfo( station, info );
+    public PutInfo validatePutInfo(SplitDockStation station, PutInfo info) {
+        return delegate.validatePutInfo(station, info);
     }
 
-    public Dockable willMakeFullscreen( SplitDockStation station, Dockable dockable ) {
-        return delegate.willMakeFullscreen( station, dockable );
+    public Dockable willMakeFullscreen(SplitDockStation station, Dockable dockable) {
+        return delegate.willMakeFullscreen(station, dockable);
     }
 
 }

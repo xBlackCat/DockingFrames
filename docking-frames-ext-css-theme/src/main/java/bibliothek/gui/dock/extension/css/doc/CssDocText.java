@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2013 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -39,35 +39,41 @@ import java.lang.annotation.RetentionPolicy;
  * a human readable text.</li>
  * <li> Else use {@link #text()} as fallback, without applying {@link #arguments()} </li>
  * </ul>
+ *
  * @author Benjamin Sigg
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CssDocText {
-	/**
-	 * A key that can be used to load text from some map (e.g. translated text) that is to be defined elsewhere.<br>
-	 * The value read from the map is applied to {@link String#format(String, Object...)}, using {@link #arguments()}.
-	 * @return key leading to text, can be <code>"null"</code>
-	 */
-	public String id() default "";
-	
-	/**
-	 * Fallback formatting {@link String}, used to call {@link String#format(String, Object...)} with {@link #arguments()},
-	 * in case that {@link #id()} is <code>null</code>
-	 * @return the format or <code>"null"</code>
-	 */
-	public String format() default "";
-	
-	/**
-	 * Arguments used to call {@link String#format(String, Object...)}.
-	 * @return the arguments, can be empty
-	 */
-	public String[] arguments() default {};
-	
-	/**
-	 * Fallback text, to be used if the other fields cannot be used to get a {@link String}. Will be shown
-	 * unformatted.
-	 * @return the fallback text, can be <code>"null"</code>
-	 */
-	public String text() default "";
+    /**
+     * A key that can be used to load text from some map (e.g. translated text) that is to be defined elsewhere.<br>
+     * The value read from the map is applied to {@link String#format(String, Object...)}, using {@link #arguments()}.
+     *
+     * @return key leading to text, can be <code>"null"</code>
+     */
+    String id() default "";
+
+    /**
+     * Fallback formatting {@link String}, used to call {@link String#format(String, Object...)} with
+     * {@link #arguments()},
+     * in case that {@link #id()} is <code>null</code>
+     *
+     * @return the format or <code>"null"</code>
+     */
+    String format() default "";
+
+    /**
+     * Arguments used to call {@link String#format(String, Object...)}.
+     *
+     * @return the arguments, can be empty
+     */
+    String[] arguments() default {};
+
+    /**
+     * Fallback text, to be used if the other fields cannot be used to get a {@link String}. Will be shown
+     * unformatted.
+     *
+     * @return the fallback text, can be <code>"null"</code>
+     */
+    String text() default "";
 }

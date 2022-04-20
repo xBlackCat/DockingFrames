@@ -13,31 +13,37 @@ import bibliothek.gui.DockController;
 
 /**
  * This item can show a preference dialog for one {@link DockController}.
+ *
  * @author Benjamin Sigg
  */
-public class PreferenceItem extends JMenuItem implements ActionListener{
-	/** the preferences */
-	private PreferenceTreeModel model;
-	
-	/** the owner of this item */
-	private JFrame frame;
-	
-	/**
-	 * Creates a new item.
-	 * @param frame the owner of this item
-	 * @param controller the controller whose settings can be changed
-	 */
-	public PreferenceItem( JFrame frame, DockController controller ){
-		this.frame = frame;
-		this.model = new DockingFramesPreference( controller );
-		
-		setText( "Preferences" );
-		setToolTipText( "Change the behavior of this application" );
-		
-		addActionListener( this );
-	}
-	
-	public void actionPerformed(ActionEvent e) {
-		PreferenceTreeDialog.openDialog( model, frame );
-	}
+public class PreferenceItem extends JMenuItem implements ActionListener {
+    /**
+     * the preferences
+     */
+    private PreferenceTreeModel model;
+
+    /**
+     * the owner of this item
+     */
+    private JFrame frame;
+
+    /**
+     * Creates a new item.
+     *
+     * @param frame      the owner of this item
+     * @param controller the controller whose settings can be changed
+     */
+    public PreferenceItem(JFrame frame, DockController controller) {
+        this.frame = frame;
+        this.model = new DockingFramesPreference(controller);
+
+        setText("Preferences");
+        setToolTipText("Change the behavior of this application");
+
+        addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        PreferenceTreeDialog.openDialog(model, frame);
+    }
 }

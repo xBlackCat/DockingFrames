@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2010 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,25 +18,27 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
  */
 package bibliothek.gui.dock.station.support;
 
-import java.util.Set;
-
 import bibliothek.util.Path;
+
+import java.util.Set;
 
 /**
  * A listener that gets added to a {@link PlaceholderStrategy}.
+ *
  * @author Benjamin Sigg
  */
 public interface PlaceholderStrategyListener {
-	/**
-	 * Informs this listener that a set of placeholders is no longer in use.
-	 * @param placeholders the placeholders that are no longer valid
-	 */
-	public void placeholderInvalidated( Set<Path> placeholders );
+    /**
+     * Informs this listener that a set of placeholders is no longer in use.
+     *
+     * @param placeholders the placeholders that are no longer valid
+     */
+    void placeholderInvalidated(Set<Path> placeholders);
 }

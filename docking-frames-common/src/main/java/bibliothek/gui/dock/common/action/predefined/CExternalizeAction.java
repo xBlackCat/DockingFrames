@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -33,14 +33,17 @@ import bibliothek.gui.dock.common.mode.ExtendedMode;
 
 /**
  * An action which {@link ExtendedMode#EXTERNALIZED externalizes} each {@link CDockable} to which is is added.
+ *
  * @author Benjamin Sigg
  */
-public class CExternalizeAction extends CExtendedModeAction{
+public class CExternalizeAction extends CExtendedModeAction {
     /**
      * Creates a new action
+     *
      * @param control the control for which this action will be used
      */
-    public CExternalizeAction( CControl control ){
-        super( control, ExtendedMode.EXTERNALIZED, CLocationModeManager.ICON_MANAGER_KEY_EXTERNALIZE, "externalize.in", "externalize.in.tooltip", CControl.KEY_GOTO_EXTERNALIZED );
+    public CExternalizeAction(CControl control) {
+        super(control, ExtendedMode.EXTERNALIZED, CLocationModeManager.ICON_MANAGER_KEY_EXTERNALIZE, "externalize.in"
+                , "externalize.in.tooltip", CControl.KEY_GOTO_EXTERNALIZED);
     }
 }

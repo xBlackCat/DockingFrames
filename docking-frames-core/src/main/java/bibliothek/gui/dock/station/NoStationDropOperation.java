@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2011 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -32,51 +32,53 @@ import bibliothek.gui.dock.station.support.CombinerTarget;
 
 /**
  * This {@link StationDropOperation} represent the no-op, and will not do anything.
+ *
  * @author Benjamin Sigg
  */
-public class NoStationDropOperation implements StationDropOperation{
-	private DockStation target;
-	private Dockable item;
-	
-	/**
-	 * Create a new operation
-	 * @param target the station executing this no-operation 
-	 * @param item the item wich is not moved
-	 */
-	public NoStationDropOperation( DockStation target, Dockable item ){
-		this.target = target;
-		this.item = item;
-	}
-	
-	public void draw(){
-		// ignore
-	}
+public class NoStationDropOperation implements StationDropOperation {
+    private final DockStation target;
+    private final Dockable item;
 
-	public void destroy( StationDropOperation next ){
-		// ignore		
-	}
+    /**
+     * Create a new operation
+     *
+     * @param target the station executing this no-operation
+     * @param item   the item wich is not moved
+     */
+    public NoStationDropOperation(DockStation target, Dockable item) {
+        this.target = target;
+        this.item = item;
+    }
 
-	public boolean isMove(){
-		return true;
-	}
+    public void draw() {
+        // ignore
+    }
 
-	public void execute(){
-		// ignore		
-	}
+    public void destroy(StationDropOperation next) {
+        // ignore
+    }
 
-	public DockStation getTarget(){
-		return target;
-	}
+    public boolean isMove() {
+        return true;
+    }
 
-	public Dockable getItem(){
-		return item;
-	}
+    public void execute() {
+        // ignore
+    }
 
-	public CombinerTarget getCombination(){
-		return null;
-	}
+    public DockStation getTarget() {
+        return target;
+    }
 
-	public DisplayerCombinerTarget getDisplayerCombination(){
-		return null;
-	}
+    public Dockable getItem() {
+        return item;
+    }
+
+    public CombinerTarget getCombination() {
+        return null;
+    }
+
+    public DisplayerCombinerTarget getDisplayerCombination() {
+        return null;
+    }
 }

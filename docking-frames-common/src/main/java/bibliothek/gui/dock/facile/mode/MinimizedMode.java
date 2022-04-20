@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2009 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -40,67 +40,74 @@ import bibliothek.util.Path;
 
 /**
  * Only the title of a minimized {@link Dockable} is visible.
+ *
  * @author Benjamin Sigg
  */
-public class MinimizedMode<M extends MinimizedModeArea> extends DefaultLocationMode<M>{
-	/** the unique identifier of this mode */
-	public static final Path IDENTIFIER = new Path( "dock.mode.minimized" );
-	
-    /** the key used for the {@link IconManager} to read the {@link javax.swing.Icon} for the "minimize"-action */
+public class MinimizedMode<M extends MinimizedModeArea> extends DefaultLocationMode<M> {
+    /**
+     * the unique identifier of this mode
+     */
+    public static final Path IDENTIFIER = new Path("dock.mode.minimized");
+
+    /**
+     * the key used for the {@link IconManager} to read the {@link javax.swing.Icon} for the "minimize"-action
+     */
     public static final String ICON_IDENTIFIER = CLocationModeManager.ICON_MANAGER_KEY_MINIMIZE;
 
     /**
-     * Empty default constructor. Subclasses should call 
+     * Empty default constructor. Subclasses should call
      * {@link #setActionProvider(LocationModeActionProvider)} to complete
      * initialization of this mode.
      */
-    protected MinimizedMode(){
-    	setShouldAutoFocus( false );
+    protected MinimizedMode() {
+        setShouldAutoFocus(false);
     }
-    
-	/**
-	 * Creates a new mode.
-	 * @param control the control in whose realm this mode is used
-	 */
-	public MinimizedMode( CControl control ){
-		setActionProvider( new DefaultLocationModeActionProvider( new CMinimizeAction( control ) ) );
-		setShouldAutoFocus( false );
-	}
-	
-	/**
-	 * Creates a new mode.
-	 * @param controller the owner of this mode
-	 */
-	public MinimizedMode( DockController controller ){
-		setActionProvider( new DefaultLocationModeActionProvider( new MinimizedModeAction( controller, this ) ) );
-        setShouldAutoFocus( false );
-	}
-	
-	public Path getUniqueIdentifier(){
-		return IDENTIFIER;
-	}
-	
-	public ExtendedMode getExtendedMode(){
-		return ExtendedMode.MINIMIZED;
-	}
-	
-	public boolean isDefaultMode( Dockable dockable ){
-		return false;
-	}
-	
-    public ModeSettingFactory<Location> getSettingFactory(){
-    	return new NullModeSettingsFactory<Location>( getUniqueIdentifier() );
+
+    /**
+     * Creates a new mode.
+     *
+     * @param control the control in whose realm this mode is used
+     */
+    public MinimizedMode(CControl control) {
+        setActionProvider(new DefaultLocationModeActionProvider(new CMinimizeAction(control)));
+        setShouldAutoFocus(false);
     }
-    
-    public void ensureNotHidden( Dockable dockable ){
-	    // ignore	
+
+    /**
+     * Creates a new mode.
+     *
+     * @param controller the owner of this mode
+     */
+    public MinimizedMode(DockController controller) {
+        setActionProvider(new DefaultLocationModeActionProvider(new MinimizedModeAction(controller, this)));
+        setShouldAutoFocus(false);
     }
-    
-    public void writeSetting( ModeSetting<Location> setting ){
-	    // ignore	
+
+    public Path getUniqueIdentifier() {
+        return IDENTIFIER;
     }
-    
-    public void readSetting( ModeSetting<Location> setting ){
-    	// ignore
+
+    public ExtendedMode getExtendedMode() {
+        return ExtendedMode.MINIMIZED;
+    }
+
+    public boolean isDefaultMode(Dockable dockable) {
+        return false;
+    }
+
+    public ModeSettingFactory<Location> getSettingFactory() {
+        return new NullModeSettingsFactory<>(getUniqueIdentifier());
+    }
+
+    public void ensureNotHidden(Dockable dockable) {
+        // ignore
+    }
+
+    public void writeSetting(ModeSetting<Location> setting) {
+        // ignore
+    }
+
+    public void readSetting(ModeSetting<Location> setting) {
+        // ignore
     }
 }

@@ -2,48 +2,53 @@ package bibliothek.help.javadoc;
 
 import bibliothek.help.model.Entry;
 
-import com.sun.javadoc.ClassDoc;
-import com.sun.javadoc.MethodDoc;
-import com.sun.javadoc.Parameter;
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
 
 /**
  * An {@link Entryable} that creates a list of methods. All methods
  * are owned by the same class or interface.
- * @author Benjamin Sigg
  *
+ * @author Benjamin Sigg
  */
-@Content(type="method-list",encoding=Content.Encoding.DOCUMENT)
-public class EntryableMethodList extends AbstractEntryable{
-    /** the class whose methods are collected */
-    private ClassDoc doc;
-    
+@Content(type = "method-list", encoding = Content.Encoding.DOCUMENT)
+public class EntryableMethodList extends AbstractEntryable {
+    /**
+     * the class whose methods are collected
+     */
+    private TypeElement doc;
+
     /**
      * Creates a new list of methods.
+     *
      * @param doc the owner of the methods
      */
-    public EntryableMethodList( ClassDoc doc ){
+    public EntryableMethodList(TypeElement doc) {
         this.doc = doc;
-        
-        for( MethodDoc method : doc.methods() ){
-            add( new EntryableMethod( method ) );
-            
-            print( method.returnType() );
-            print( " " );
-            italic( true );
-            link( method.name(), "method", method.qualifiedName() + method.signature() );
-            italic( false );
-            print( "(" );
-            Parameter[] args = method.parameters();
-            for( int i = 0; i < args.length; i++ ){
-                if( i > 0 )
-                    print( ", " );
-                print( args[i].type() );
+
+        for (ExecutableElement method : doc.methods()) {
+            add(new EntryableMethod(method));
+
+            print(method.returnType());
+            print(" ");
+            italic(true);
+            link(method.name(), "method", method.qualifiedName() + method.signature());
+            italic(false);
+            print("(");
+            VariableElement[] args = method.parameters();
+            for (int i = 0; i < args.length; i++) {
+                if (i > 0) {
+                    print(", ");
+                }
+                print(args[i].type());
             }
-            println( ")" );
+            println(")");
         }
     }
-    
+
     public Entry toEntry() {
-        return new Entry( "method-list", doc.qualifiedName(), "Methods of " + doc.qualifiedName(), content(), "class:" + doc.qualifiedName() );
+        return new Entry("method-list", doc.qualifiedName(),
+                "Methods of " + doc.qualifiedName(), content(), "class:" + doc.qualifiedName());
     }
 }

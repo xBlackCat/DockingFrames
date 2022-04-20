@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2008 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -36,39 +36,43 @@ import bibliothek.gui.dock.perspective.PerspectiveStation;
  * elements (stations and dockables) should be written into a stream. Elements
  * can be filtered by this Ignore, and will not reappear if the situation is
  * read again.
- * @author Benjamin Sigg
  *
+ * @author Benjamin Sigg
  */
 public interface DockSituationIgnore {
     /**
-     * Tells whether to ignore this element when saving. If an element is ignored, no 
+     * Tells whether to ignore this element when saving. If an element is ignored, no
      * factory is needed for it.
+     *
      * @param element the element which might not be saved
      * @return <code>true</code> if the element should not be saved
      */
-    public boolean ignoreElement( DockElement element );
-    
+    boolean ignoreElement(DockElement element);
+
     /**
-     * Tells whether to ignore this element when saving. If an element is ignored, no 
+     * Tells whether to ignore this element when saving. If an element is ignored, no
      * factory is needed for it.
+     *
      * @param element the element which might not be saved
      * @return <code>true</code> if the element should not be saved
      */
-    public boolean ignoreElement( PerspectiveElement element );
-    
+    boolean ignoreElement(PerspectiveElement element);
+
     /**
      * Tells whether to ignore the children of the station when saving or not. If the children
      * are ignored, no factories are needed for them.
+     *
      * @param station the station whose children might be ignored
      * @return <code>true</code> if the station is saved as having no children
      */
-    public boolean ignoreChildren( DockStation station );
-    
+    boolean ignoreChildren(DockStation station);
+
     /**
      * Tells whether to ignore the children of the station when saving or not. If the children
      * are ignored, no factories are needed for them.
+     *
      * @param station the station whose children might be ignored
      * @return <code>true</code> if the station is saved as having no children
      */
-    public boolean ignoreChildren( PerspectiveStation station );
+    boolean ignoreChildren(PerspectiveStation station);
 }

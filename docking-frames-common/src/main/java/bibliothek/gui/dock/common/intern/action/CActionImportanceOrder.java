@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2011 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -35,18 +35,19 @@ import bibliothek.gui.dock.themes.basic.action.DockActionImportanceOrder;
 /**
  * This {@link DockActionImportanceOrder} searches for the annotation {@link DockActionImportance} which may
  * be added to a {@link CAction} or to a {@link DockAction}.
+ *
  * @author Benjamin Sigg
  */
-public class CActionImportanceOrder extends DefaultDockActionImportanceOrder{
-	@Override
-	protected double getImportance( DockAction action ){
-		if( action instanceof CommonDockAction ){
-			CAction caction = ((CommonDockAction)action).getAction();
-			DockActionImportance importance = caction.getClass().getAnnotation( DockActionImportance.class );
-			if( importance != null ){
-				return importance.value();
-			}
-		}
-		return super.getImportance( action );
-	}
+public class CActionImportanceOrder extends DefaultDockActionImportanceOrder {
+    @Override
+    protected double getImportance(DockAction action) {
+        if (action instanceof CommonDockAction) {
+            CAction caction = ((CommonDockAction) action).getAction();
+            DockActionImportance importance = caction.getClass().getAnnotation(DockActionImportance.class);
+            if (importance != null) {
+                return importance.value();
+            }
+        }
+        return super.getImportance(action);
+    }
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2010 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,44 +18,48 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
  */
 package bibliothek.gui.dock.util.extension;
 
-import java.util.Collection;
-
 import bibliothek.gui.DockController;
+
+import java.util.Collection;
 
 /**
  * An extension provides a set of resources that override existing resources. The
  * resources are acquired lazily.<br>
  * New extensions will be added to the framework when needed or upon request.
- * @see ExtensionName
+ *
  * @author Benjamin Sigg
+ * @see ExtensionName
  */
 public interface Extension {
-	/**
-	 * Informs this extension that it will now be used for <code>controller</code>.
-	 * @param controller a new controller for which this extension is used
-	 */
-	public void install( DockController controller );
-	
-	/**
-	 * Informs this extension that it will no longer be used for <code>controller</code>.
-	 * @param controller the controller for which this extension was used
-	 */
-	public void uninstall( DockController controller );
-	
-	/**
-	 * Loads a set of extensions, it is the {@link Extension}s responsibility to implement any
-	 * kind of caching.
-	 * @param <E> the kind of extension that is requested
-	 * @param controller the controller in whose realm the extension will be used
-	 * @param extension	the unique name of the extension
-	 * @return the extension, can be <code>null</code>
-	 */
-	public <E> Collection<E> load( DockController controller, ExtensionName<E> extension );
+    /**
+     * Informs this extension that it will now be used for <code>controller</code>.
+     *
+     * @param controller a new controller for which this extension is used
+     */
+    void install(DockController controller);
+
+    /**
+     * Informs this extension that it will no longer be used for <code>controller</code>.
+     *
+     * @param controller the controller for which this extension was used
+     */
+    void uninstall(DockController controller);
+
+    /**
+     * Loads a set of extensions, it is the {@link Extension}s responsibility to implement any
+     * kind of caching.
+     *
+     * @param <E>        the kind of extension that is requested
+     * @param controller the controller in whose realm the extension will be used
+     * @param extension  the unique name of the extension
+     * @return the extension, can be <code>null</code>
+     */
+    <E> Collection<E> load(DockController controller, ExtensionName<E> extension);
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -33,32 +33,37 @@ import bibliothek.gui.dock.extension.css.path.CssPathListener;
  * of {@link CssNode}. Changes in the {@link CssNode}s should be forwarded to the
  * {@link CssPathListener}s.<br>
  * In general paths have to be optimized for use with attached {@link CssPathListener}s.
+ *
  * @author Benjamin Sigg
  */
 public interface CssPath {
-	/**
-	 * Gets the number of {@link CssNode}s of this path.
-	 * @return the number of nodes, should be at least 1, but a path without
-	 * nodes is considered valid as well
-	 */
-	public int getSize();
-	
-	/**
-	 * Gets the <code>index</code>'th node of this path.
-	 * @param index the index of the node
- 	 * @return the node
-	 */
-	public CssNode getNode( int index );
-	
-	/**
-	 * Adds the observer <code>listener</code> to this path.
-	 * @param listener the new observer, not <code>null</code>
-	 */
-	public void addPathListener( CssPathListener listener );
-	
-	/**
-	 * Removes the observer <code>listener</code> from this path.
-	 * @param listener the listener to remove
-	 */
-	public void removePathListener( CssPathListener listener );
+    /**
+     * Gets the number of {@link CssNode}s of this path.
+     *
+     * @return the number of nodes, should be at least 1, but a path without
+     * nodes is considered valid as well
+     */
+    int getSize();
+
+    /**
+     * Gets the <code>index</code>'th node of this path.
+     *
+     * @param index the index of the node
+     * @return the node
+     */
+    CssNode getNode(int index);
+
+    /**
+     * Adds the observer <code>listener</code> to this path.
+     *
+     * @param listener the new observer, not <code>null</code>
+     */
+    void addPathListener(CssPathListener listener);
+
+    /**
+     * Removes the observer <code>listener</code> from this path.
+     *
+     * @param listener the listener to remove
+     */
+    void removePathListener(CssPathListener listener);
 }

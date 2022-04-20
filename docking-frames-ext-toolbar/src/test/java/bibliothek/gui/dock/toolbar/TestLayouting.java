@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Herve Guillaume, Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Herve Guillaume
  * rvguillaume@hotmail.com
  * FR - France
@@ -29,8 +29,6 @@
  */
 
 package bibliothek.gui.dock.toolbar;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import bibliothek.gui.DockController;
 import bibliothek.gui.DockStation;
@@ -41,53 +39,55 @@ import bibliothek.gui.dock.ToolbarItemDockable;
 import bibliothek.gui.dock.control.SingleParentRemover;
 import bibliothek.gui.dock.station.screen.ScreenDockProperty;
 
-public class TestLayouting{
-	public static void main( String[] args ){
-		final JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+import javax.swing.*;
 
-		final DockController controller = new DockController();
-		controller.setSingleParentRemover(new SingleParentRemover(){
-			@Override
-			protected boolean test( DockStation station ){
-				return false;
-			}
-		});
+public class TestLayouting {
+    public static void main(String[] args) {
+        final JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		controller.setRootWindow(frame);
+        final DockController controller = new DockController();
+        controller.setSingleParentRemover(new SingleParentRemover() {
+            @Override
+            protected boolean test(DockStation station) {
+                return false;
+            }
+        });
 
-		final ScreenDockStation screen = new ScreenDockStation(
-				controller.getRootWindowProvider());
-		controller.add(screen);
-		final ScreenDockProperty initial = new ScreenDockProperty(20, 20, 200,
-				20);
+        controller.setRootWindow(frame);
 
-		final ToolbarItemDockable dockable = new ToolbarItemDockable(new JButton(
-				"hello"));
+        final ScreenDockStation screen = new ScreenDockStation(
+                controller.getRootWindowProvider());
+        controller.add(screen);
+        final ScreenDockProperty initial = new ScreenDockProperty(20, 20, 200,
+                20);
 
-		final ToolbarDockStation group = new ToolbarDockStation(){
-			@Override
-			public boolean accept( DockStation station ){
-				return true;
-			}
-		};
-		group.drop(dockable);
+        final ToolbarItemDockable dockable = new ToolbarItemDockable(new JButton(
+                "hello"));
 
-		final ToolbarGroupDockStation toolbar = new ToolbarGroupDockStation();
-		toolbar.drop(group);
+        final ToolbarDockStation group = new ToolbarDockStation() {
+            @Override
+            public boolean accept(DockStation station) {
+                return true;
+            }
+        };
+        group.drop(dockable);
 
-		final boolean dropped = screen.drop(toolbar, initial);
-		if (!dropped){
-			throw new IllegalStateException("not dropped");
-		}
+        final ToolbarGroupDockStation toolbar = new ToolbarGroupDockStation();
+        toolbar.drop(group);
 
-		screen.setShowing(true);
-		frame.setBounds(0, 0, 300, 300);
-		frame.setVisible(true);
+        final boolean dropped = screen.drop(toolbar, initial);
+        if (!dropped) {
+            throw new IllegalStateException("not dropped");
+        }
 
-		System.out.println(dockable.getComponent().getPreferredSize());
-		System.out.println(group.getComponent().getPreferredSize());
-		System.out.println(toolbar.getComponent().getPreferredSize());
+        screen.setShowing(true);
+        frame.setBounds(0, 0, 300, 300);
+        frame.setVisible(true);
 
-	}
+        System.out.println(dockable.getComponent().getPreferredSize());
+        System.out.println(group.getComponent().getPreferredSize());
+        System.out.println(toolbar.getComponent().getPreferredSize());
+
+    }
 }

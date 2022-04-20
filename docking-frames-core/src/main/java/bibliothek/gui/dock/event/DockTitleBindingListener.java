@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -32,6 +32,7 @@ import bibliothek.gui.dock.title.DockTitle;
 /**
  * A listener added to a {@link DockController}, receives notifications when
  * a {@link DockTitle} is bound or unbound.
+ *
  * @author Benjamin Sigg
  */
 public interface DockTitleBindingListener {
@@ -40,20 +41,22 @@ public interface DockTitleBindingListener {
      * to <code>dockable</code>.
      * This method is called after the {@link DockTitle#bind()}-method
      * was invoked.
+     *
      * @param controller the origin of the event
-     * @param title the {@link DockTitle} that was bound
-     * @param dockable the owner of <code>title</code>
+     * @param title      the {@link DockTitle} that was bound
+     * @param dockable   the owner of <code>title</code>
      */
-    public void titleBound( DockController controller, DockTitle title, Dockable dockable );
-    
+    void titleBound(DockController controller, DockTitle title, Dockable dockable);
+
     /**
      * Called when <code>title</code> was {@link Dockable#unbind(DockTitle) unbound}
      * from <code>dockable</code>.
      * This method is called after the {@link DockTitle#bind()}-method
      * was invoked.
+     *
      * @param controller the origin of the event
-     * @param title the {@link DockTitle} which was unbound
-     * @param dockable the old owner of <code>title</code>
+     * @param title      the {@link DockTitle} which was unbound
+     * @param dockable   the old owner of <code>title</code>
      */
-    public void titleUnbound( DockController controller, DockTitle title, Dockable dockable );
+    void titleUnbound(DockController controller, DockTitle title, Dockable dockable);
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2013 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -34,14 +34,16 @@ import java.lang.annotation.Target;
  * Added to a class, this annotation tells the {@link DocGenerator} that a class supports more
  * css-properties, defined in other classes. The other properties will be treated as if they would have
  * been defined within the annotated class.
+ *
  * @author Benjamin Sigg
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CssDocSeeAlso {
-	/**
-	 * A list of all the other classes to look at.
-	 * @return the other classes
-	 */
-	public Class<?>[] value();
+    /**
+     * A list of all the other classes to look at.
+     *
+     * @return the other classes
+     */
+    Class<?>[] value();
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -33,22 +33,23 @@ import bibliothek.gui.dock.extension.css.transition.TransitionalCssProperty;
 
 /**
  * An transition property fading one {@link CssPaint} into another.
- * @author Benjamin Sigg
+ *
  * @param <T> the type of value this transition will handle
+ * @author Benjamin Sigg
  */
-public class LinearCssTransition<T> extends AnimatedCssTransition<T>{
-	@Override
-	protected TransitionalCssProperty<T> createProperty( CssType<T> type, CssPropertyKey key ){
-		return type.createTransition();
-	}
+public class LinearCssTransition<T> extends AnimatedCssTransition<T> {
+    @Override
+    protected TransitionalCssProperty<T> createProperty(CssType<T> type, CssPropertyKey key) {
+        return type.createTransition();
+    }
 
-	@Override
-	protected void bind(){
-		// ignore
-	}
+    @Override
+    protected void bind() {
+        // ignore
+    }
 
-	@Override
-	protected void unbind(){
-		// ignore
-	}
+    @Override
+    protected void unbind() {
+        // ignore
+    }
 }

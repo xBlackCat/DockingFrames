@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -31,6 +31,7 @@ import bibliothek.gui.dock.common.intern.CDockable;
 /**
  * A {@link CFocusListener} gets informed when a {@link CDockable} gains or
  * looses the focus, or is selected or deselected by its parent.
+ *
  * @author Benjamin Sigg
  * @see CDockable#addFocusListener(CFocusListener)
  * @see CDockable#removeFocusListener(CFocusListener)
@@ -40,13 +41,15 @@ import bibliothek.gui.dock.common.intern.CDockable;
 public interface CFocusListener {
     /**
      * Called when <code>dockable</code> gains the focus.
+     *
      * @param dockable the element which just gained the focus
      */
-    public void focusGained( CDockable dockable );
-    
+    void focusGained(CDockable dockable);
+
     /**
      * Called when <code>dockable</code> lost its focus.
+     *
      * @param dockable the element which just lost the focus
      */
-    public void focusLost( CDockable dockable );
+    void focusLost(CDockable dockable);
 }

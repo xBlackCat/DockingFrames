@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2010 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -30,25 +30,29 @@ import bibliothek.gui.dock.DockFactory;
 
 /**
  * Representation of a {@link DockElement}
+ *
  * @author Benjamin Sigg
  */
 public interface PerspectiveElement {
-	/**
-	 * Gets the identifier of the {@link DockFactory} that will be able to
-	 * understand the layout information this element generates. 
-	 * @return the factories identifier
-	 */
-	public String getFactoryID();
-	
-	/**
-	 * Returns the representation of <code>this</code> as {@link PerspectiveStation}
-	 * @return either <code>this</code>, a representation of <code>this</code> or <code>null</code>
-	 */
-	public PerspectiveStation asStation();
-	
-	/**
-	 * Returns the representation of <code>this</code> as {@link PerspectiveDockable}.
-	 * @return either <code>this</code>, a representation of <code>this</code> or <code>null</code>
-	 */
-	public PerspectiveDockable asDockable();
+    /**
+     * Gets the identifier of the {@link DockFactory} that will be able to
+     * understand the layout information this element generates.
+     *
+     * @return the factories identifier
+     */
+    String getFactoryID();
+
+    /**
+     * Returns the representation of <code>this</code> as {@link PerspectiveStation}
+     *
+     * @return either <code>this</code>, a representation of <code>this</code> or <code>null</code>
+     */
+    PerspectiveStation asStation();
+
+    /**
+     * Returns the representation of <code>this</code> as {@link PerspectiveDockable}.
+     *
+     * @return either <code>this</code>, a representation of <code>this</code> or <code>null</code>
+     */
+    PerspectiveDockable asDockable();
 }

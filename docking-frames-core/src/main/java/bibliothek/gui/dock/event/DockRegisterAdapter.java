@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2007 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -31,42 +31,43 @@ import bibliothek.gui.Dockable;
 
 /**
  * A {@link DockRegisterListener} that contains only empty methods.
+ *
  * @author Benjamin Sigg
  */
-public class DockRegisterAdapter implements DockRegisterListener{
-	public void registerStalled( DockController controller ){
-		// do nothing
-	}
-	
-	public void registerUnstalled( DockController controller ){
-		// do nothing	
-	}
-	
-    public void dockStationRegistered( DockController controller, DockStation station ) {
+public class DockRegisterAdapter implements DockRegisterListener {
+    public void registerStalled(DockController controller) {
         // do nothing
     }
 
-    public void dockStationRegistering( DockController controller, DockStation station ) {
+    public void registerUnstalled(DockController controller) {
         // do nothing
     }
 
-    public void dockStationUnregistered( DockController controller, DockStation station ) {
+    public void dockStationRegistered(DockController controller, DockStation station) {
         // do nothing
     }
 
-    public void dockableCycledRegister( DockController controller, Dockable dockable ) {
+    public void dockStationRegistering(DockController controller, DockStation station) {
         // do nothing
     }
 
-    public void dockableRegistered( DockController controller, Dockable dockable ) {
+    public void dockStationUnregistered(DockController controller, DockStation station) {
         // do nothing
     }
 
-    public void dockableRegistering( DockController controller, Dockable dockable ) {
+    public void dockableCycledRegister(DockController controller, Dockable dockable) {
         // do nothing
     }
 
-    public void dockableUnregistered( DockController controller, Dockable dockable ) {
+    public void dockableRegistered(DockController controller, Dockable dockable) {
+        // do nothing
+    }
+
+    public void dockableRegistering(DockController controller, Dockable dockable) {
+        // do nothing
+    }
+
+    public void dockableUnregistered(DockController controller, Dockable dockable) {
         // do nothing
     }
 }

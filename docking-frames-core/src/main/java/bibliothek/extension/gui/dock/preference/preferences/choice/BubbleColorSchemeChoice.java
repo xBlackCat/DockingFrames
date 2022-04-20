@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2008 Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Benjamin Sigg
  * benjamin_sigg@gmx.ch
  * CH - Switzerland
@@ -35,31 +35,42 @@ import bibliothek.gui.dock.util.DockProperties;
 
 /**
  * A list of {@link ColorScheme}s for {@link BubbleTheme}.
+ *
  * @author Benjamin Sigg
  */
 public class BubbleColorSchemeChoice extends DefaultChoice<ColorScheme> {
-	/**
-	 * Creates a new choice
-	 * @param properties default settings
-	 */
-	public BubbleColorSchemeChoice( DockProperties properties ){
-		super( properties.getController() );
+    /**
+     * Creates a new choice
+     *
+     * @param properties default settings
+     */
+    public BubbleColorSchemeChoice(DockProperties properties) {
+        super(properties.getController());
 
-		addLinked( "rgb", "preference.theme.bubble.color.rgb", new IdentifiedColorScheme( "rgb", new BubbleColorScheme( Distribution.RGB ) ) );
-		addLinked( "rbg", "preference.theme.bubble.color.rbg", new IdentifiedColorScheme( "rbg", new BubbleColorScheme( Distribution.RBG ) ) );
+        addLinked("rgb", "preference.theme.bubble.color.rgb", new IdentifiedColorScheme("rgb",
+                new BubbleColorScheme(Distribution.RGB)));
+        addLinked("rbg", "preference.theme.bubble.color.rbg", new IdentifiedColorScheme("rbg",
+                new BubbleColorScheme(Distribution.RBG)));
 
-		addLinked( "grb", "preference.theme.bubble.color.grb", new IdentifiedColorScheme( "grb", new BubbleColorScheme( Distribution.GRB ) ) );
-		addLinked( "gbr", "preference.theme.bubble.color.gbr", new IdentifiedColorScheme( "gbr", new BubbleColorScheme( Distribution.GBR ) ) );
+        addLinked("grb", "preference.theme.bubble.color.grb", new IdentifiedColorScheme("grb",
+                new BubbleColorScheme(Distribution.GRB)));
+        addLinked("gbr", "preference.theme.bubble.color.gbr", new IdentifiedColorScheme("gbr",
+                new BubbleColorScheme(Distribution.GBR)));
 
-		addLinked( "brg", "preference.theme.bubble.color.brg", new IdentifiedColorScheme( "brg", new BubbleColorScheme( Distribution.BRG ) ) );
-		addLinked( "bgr", "preference.theme.bubble.color.bgr", new IdentifiedColorScheme( "bgr", new BubbleColorScheme( Distribution.BGR ) ) );
+        addLinked("brg", "preference.theme.bubble.color.brg", new IdentifiedColorScheme("brg",
+                new BubbleColorScheme(Distribution.BRG)));
+        addLinked("bgr", "preference.theme.bubble.color.bgr", new IdentifiedColorScheme("bgr",
+                new BubbleColorScheme(Distribution.BGR)));
 
-		addLinked( "blop", "preference.theme.bubble.color.blops", new IdentifiedColorScheme( "blops", SimpleBubbleColorScheme.BLOPS ) );
-		addLinked( "bright", "preference.theme.bubble.color.bright", new IdentifiedColorScheme( "bright", SimpleBubbleColorScheme.BRIGHT ) );
-		addLinked( "looAndFeel", "preference.theme.bubble.color.system", new IdentifiedColorScheme( "system", SimpleBubbleColorScheme.LOOK_AND_FEEL ) );
+        addLinked("blop", "preference.theme.bubble.color.blops", new IdentifiedColorScheme("blops",
+                SimpleBubbleColorScheme.BLOPS));
+        addLinked("bright", "preference.theme.bubble.color.bright", new IdentifiedColorScheme("bright",
+                SimpleBubbleColorScheme.BRIGHT));
+        addLinked("looAndFeel", "preference.theme.bubble.color.system", new IdentifiedColorScheme("system",
+                SimpleBubbleColorScheme.LOOK_AND_FEEL));
 
-		if( properties != null ) {
-			setDefaultChoice( "rgb" );
-		}
-	}
+        if (properties != null) {
+            setDefaultChoice("rgb");
+        }
+    }
 }

@@ -2,9 +2,9 @@
  * Bibliothek - DockingFrames
  * Library built on Java/Swing, allows the user to "drag and drop"
  * panels containing any Swing-Component the developer likes to add.
- * 
+ *
  * Copyright (C) 2012 Herve Guillaume, Benjamin Sigg
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Herve Guillaume
  * rvguillaume@hotmail.com
  * FR - France
@@ -36,23 +36,23 @@ import bibliothek.gui.Orientation;
  * An oriented dockstation is a station where dockables are oriented either
  * vertically or horizontally. The methods allow to set the orientation and
  * to know what is the current orientation.
- * 
+ *
  * @author Herve Guillaume
  */
-public interface OrientedDockStation extends OrientingDockStation{
+public interface OrientedDockStation extends OrientingDockStation {
 
-	/**
-	 * Sets the orientation of dockables in this station.
-	 * 
-	 * @param orientation
-	 */
-	public void setOrientation( Orientation orientation );
+    /**
+     * Sets the orientation of dockables in this station.
+     *
+     * @param orientation
+     */
+    void setOrientation(Orientation orientation);
 
-	/**
-	 * Gets the orientation of dockables in this station.
-	 * 
-	 * @return The orientation of dockables in this station
-	 */
-	public Orientation getOrientation();
+    /**
+     * Gets the orientation of dockables in this station.
+     *
+     * @return The orientation of dockables in this station
+     */
+    Orientation getOrientation();
 
 }

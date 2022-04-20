@@ -1,6 +1,6 @@
 package bibliothek.help.javadoc;
 
-import com.sun.javadoc.RootDoc;
+import jdk.javadoc.doclet.DocletEnvironment;
 
 import bibliothek.help.model.Entry;
 
@@ -9,20 +9,21 @@ import bibliothek.help.model.Entry;
  * This <code>Entryable</code> does not collect any data from the
  * javadoc, but gives other <code>Entryable</code>s the opportunity to
  * collect data.
- * @author Benjamin Sigg
  *
+ * @author Benjamin Sigg
  */
-@Content(type="empty",encoding=Content.Encoding.CUSTOM)
+@Content(type = "empty", encoding = Content.Encoding.CUSTOM)
 public class EntryableRoot extends AbstractEntryable {
     /**
      * Creates a new root.
+     *
      * @param doc the javadoc of a java-project
      */
-	public EntryableRoot( RootDoc doc ){
-		add( new EntryablePackageList( doc ));
-	}
-	
-	public Entry toEntry(){
-		return new Entry( "empty", "", "", "" );
-	}
+    public EntryableRoot(DocletEnvironment doc) {
+        add(new EntryablePackageList(doc));
+    }
+
+    public Entry toEntry() {
+        return new Entry("empty", "", "", "");
+    }
 }
